@@ -404,7 +404,9 @@ section {
   border-radius: 16px;
   background: linear-gradient(180deg, #ff7e96 0%, #e9667d 46.5%, #f75a76 100%);
   width: 313px;
-  height: 416px;
+  /* height: 416px; */
+  /* padding: */
+  padding: 50px 10px;
   text-align: center;
 }
 
