@@ -4,12 +4,14 @@ import logo from "../../assets/main/logo.png";
 
 import girl from "../../assets/main/girl.png";
 import nudeGirl from "../../assets/main/nudeGirl.png";
+import star from "../../assets/main/star.svg";
+import blueStar from "../../assets/main/blueStar.svg";
 
 const WelcomePage = () => {
   return (
     <section id="welcome">
       <div className="welcome-column">
-        <div className="welcome-container elipse-bg">
+        <div className="welcome-container elipse-bg stars">
           <div className="welcome-container-box">
             <img
               className="main-photo"
@@ -54,6 +56,13 @@ const WelcomePage = () => {
           </div>
         </div>
       </div>
+      <img src={star} alt="star" className="star-1" />
+      <img src={star} alt="star" className="star-2" />
+      <img src={star} alt="star" className="star-3" />
+      <img src={star} alt="star" className="star-4" />
+      <img src={blueStar} alt="star" className="star-5" />
+      <img src={blueStar} alt="star" className="star-6" />
+      <img src={blueStar} alt="star" className="star-7" />
     </section>
   );
 };

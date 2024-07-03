@@ -87,37 +87,15 @@ nav {
   cursor: pointer;
 }
 
-/* Общие стили */
 section {
-  position: relative;
-  overflow: hidden;
   min-height: 100vh;
-  width: 100vw;
-  margin: 0 auto;
-}
-
-.elipse-bg {
-  position: relative;
   width: 100%;
-  height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-}
-
-.elipse-bg::before {
-  content: "";
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  background: linear-gradient(
-    180deg,
-    rgba(220, 111, 130, 0.46) 36.55%,
-    rgba(75, 156, 174, 0.46) 65.27%
-  );
-  border-radius: 50%;
-  filter: blur(30px);
-  z-index: -1;
+  align-items: center;
+  position: relative;
+  color: #ffffff;
 }
 
 .welcome-column {
@@ -149,7 +127,7 @@ section {
 .logo {
   font-family: "Arial", sans-serif;
   font-weight: bold;
-  font-size: 5em;
+  font-size: 6em;
 }
 .logo .nude {
   color: #ffffff; /* Белый цвет для "NUDE" */
@@ -226,34 +204,372 @@ section {
   margin-left: 0;
 }
 
-/* Стили для звездочек */
-.stars {
-  position: absolute;
+.elipse-bg {
+  position: relative;
   width: 100%;
   height: 100%;
-  background: url("./assets/main/Star 11.svg") repeat;
-  animation: moveStars 50s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes moveStars {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -10000px 5000px;
-  }
-}
-
-/* Стили для свечения */
-.glow {
+.elipse-bg::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(0, 0, 0, 0) 70%
+  width: 80%;
+  height: 80%;
+  background: linear-gradient(
+    180deg,
+    rgba(220, 111, 130, 0.46) 36.55%,
+    rgba(75, 156, 174, 0.46) 65.27%
   );
+  border-radius: 50%;
+  filter: blur(30px);
+  z-index: -1;
+}
+
+.stars {
+  position: relative;
+}
+
+.star-1 {
+  position: absolute;
+  top: 10%;
+  right: 50%;
+}
+
+.star-2 {
+  transform: rotate(110deg);
+  width: 2%;
+  position: absolute;
+  top: 5%;
+  right: 32%;
+}
+
+.star-3 {
+  transform: rotate(320deg);
+  position: absolute;
+  top: 10%;
+  right: 12%;
+}
+
+.star-4 {
+  transform: rotate(320deg);
+  width: 2%;
+  position: absolute;
+  top: 30%;
+  right: 12%;
+}
+
+.star-5 {
+  transform: rotate(90deg);
+  width: 2%;
+  position: absolute;
+  top: 30%;
+  right: 46%;
+}
+
+.star-6 {
+  transform: rotate(90deg);
+  width: 2%;
+  position: absolute;
+  top: 14%;
+  right: 33.5%;
+}
+
+.star-7 {
+  transform: rotate(90deg);
+  position: absolute;
+  top: 8%;
+  right: 18%;
+}
+
+/* Examples */
+
+.example-container {
+  position: relative;
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-title {
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.example-cards-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.example-card {
+  position: relative;
+  width: 250px;
+  height: 400px;
+  overflow: hidden;
+  border: 1px solid #de708499;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+.example-card-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.example-card-divider {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 5px;
+  background: #ff4081;
+  z-index: 1;
+  cursor: ns-resize;
+  transform: translateY(-50%);
+}
+
+.example-subtitle {
+  margin-top: 5em;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.dating-apps-section {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-dating-apps-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.example-dating-app {
+  border: 1px solid #cf6578;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.pricing-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.pricing-card {
+  border: 2px solid white;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ff7e96 0%, #e9667d 46.5%, #f75a76 100%);
+  width: 313px;
+  height: 416px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 31.5px;
+  font-weight: 700;
+}
+
+.card-subtitle {
+  font-size: 19.05px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.card-features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-features li {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.card-price {
+  width: 80%;
+  font-size: 1.5em;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #343434 0%, #1a1a1a 100%);
+  box-shadow: 0px 4px 10px 0px #00000033;
+  border-radius: 9px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.old-price {
+  text-decoration: line-through;
+  margin-right: 10px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.new-price {
+  color: white;
+  font-weight: bold;
+}
+
+.pricing-title {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.example-blue-logo {
+  position: absolute;
+  transform: rotate(300deg);
+  top: 10%;
+  left: 10%;
+}
+
+.example-blue-logo-2 {
+  position: absolute;
+  transform: rotate(10deg);
+  bottom: 5%;
+  left: 10%;
+  width: 5%;
+}
+
+.example-blue-logo-3 {
+  position: absolute;
+  transform: rotate(270deg);
+  top: 50%;
+  right: 13%;
+  width: 2%;
+}
+
+.example-pink-logo {
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  width: 2%;
+}
+
+.example-pink-logo-2 {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 5%;
+}
+
+.example-pink-logo-3 {
+  position: absolute;
+  transform: rotate(310deg);
+  bottom: 10%;
+  right: 10%;
+  width: 5%;
+}
+
+.example-pink-star {
+  position: absolute;
+  width: 2%;
+  top: 20%;
+  left: 5%;
+  transform: rotate(330deg);
+}
+
+.example-pink-star-2 {
+  position: absolute;
+  width: 3%;
+  top: 30%;
+  right: 5%;
+  transform: rotate(330deg);
+}
+
+.example-blue-star {
+  position: absolute;
+  width: 1.5%;
+  top: 70%;
+  left: 13%;
+  transform: rotate(110deg);
+}
+
+.example-blue-star-2 {
+  position: absolute;
+  width: 1.5%;
+  top: 70%;
+  right: 13%;
+  transform: rotate(110deg);
+}
+
+@media (max-width: 64em) {
+  .main-photo {
+    width: 337.37px;
+  }
+
+  .logo {
+    font-size: 4em;
+  }
+
+  .logo-img {
+    width: 150%;
+  }
+
+  .welcome-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .welcome-container-plashka {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0;
+    height: 540px;
+  }
+  .welcome-container-plashka-left-box {
+    padding-top: 50px;
+    width: 90%;
+    align-items: flex-start;
+  }
+
+  .welcome-container-plashka-box-title {
+    font-size: 20px;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+  }
+
+  .welcome-container-plashka-box-p {
+    font-size: 12px;
+  }
+
+  .welcome-container-plashka-button {
+    margin-top: 3em;
+    border-radius: 15px;
+    width: 227px;
+    height: 54px;
+    padding: 0;
+  }
+
+  .welcome-container-plashka-right-box {
+    width: 100%;
+  }
 }
