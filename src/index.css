@@ -367,13 +367,25 @@ section {
   padding: 10px;
 }
 
+.pricing-section {
+  min-height: 60vh;
+  display: flex;
+}
+
 .pricing-container {
-  width: 100%;
+  width: 85%;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 2em;
   margin-top: 2em;
+}
+
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+
+  gap: 5em;
 }
 
 .pricing-card {
@@ -398,17 +410,30 @@ section {
 
 .card-features {
   list-style: none;
+
   padding: 0;
   margin: 20px 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 auto;
+
+  padding-left: 40px;
 }
 
 .card-features li {
   margin: 10px 0;
   text-align: left;
+}
+
+.card-features .card-feature {
+  display: flex;
+  align-items: center;
+}
+
+.card-features .card-feature img {
+  margin-right: 10px; /* Adjust the value to your preference */
 }
 
 .card-price {
@@ -438,6 +463,8 @@ section {
 .pricing-title {
   font-size: 24px;
   font-weight: 900;
+
+  margin-left: 11%;
 }
 
 .example-blue-logo {
