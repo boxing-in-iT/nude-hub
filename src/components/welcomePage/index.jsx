@@ -9,12 +9,16 @@ const WelcomePage = () => {
   return (
     <section id="welcome">
       <div className="welcome-column">
-        <div className="welcome-container">
+        <div className="welcome-container elipse-bg">
           <div className="welcome-container-box">
-            <img src={mainPhoto} alt="main photo of girl" />
+            <img
+              className="main-photo"
+              src={mainPhoto}
+              alt="main photo of girl"
+            />
           </div>
           <div className="welcome-container-box">
-            <img src={logo} alt="logo" />
+            <img className="logo-img" src={logo} alt="logo" />
             <div class="logo">
               <span class="nude">NUDE</span>
               <span class="hub">HUB</span>
@@ -31,7 +35,7 @@ const WelcomePage = () => {
               <h3 className="welcome-container-plashka-box-title">
                 Get undressed your own AI Girlfriend
               </h3>
-              <div style={{ width: "70%" }}>
+              <div style={{ width: "80%" }}>
                 <p className="welcome-container-plashka-box-p">
                   Your dream companion awaits! Create your AI Girlfriend, shape
                   her look, personality, and bring her to life in one click.

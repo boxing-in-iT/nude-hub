@@ -6,7 +6,7 @@ import WelcomePage from "./components/welcomePage";
 function App() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <WelcomePage />
     </>
   );
