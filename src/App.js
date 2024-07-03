@@ -5,6 +5,8 @@ import WelcomePage from "./components/welcomePage";
 import Examples from "./components/examples";
 import DatingApps from "./components/dating-apps";
 import Pricing from "./components/pricing";
+import Faq from "./components/faq";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Examples />
       <DatingApps />
       <Pricing />
+      <Faq />
+      <Footer />
     </>
   );
 }

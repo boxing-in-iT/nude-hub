@@ -7,11 +7,17 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 body {
+  margin: 0;
+  height: 100vh;
   background: linear-gradient(0deg, #ffffff, #ffffff),
     linear-gradient(180deg, #1b0c0f 0%, #0c191c 100%);
+
+  /* background: linear-gradient(0deg, #ffffff, #ffffff),
+    linear-gradient(180deg, #1b0c0f 0%, #0c191c 100%); */
   background-blend-mode: overlay;
-  height: 100vh;
-  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 header {
@@ -21,6 +27,11 @@ header {
   border-bottom: 1px solid #5e5e5e;
   display: flex;
   align-items: center;
+}
+
+footer {
+  background-color: #f76e85;
+  height: 81.59px;
 }
 
 .header-content {
@@ -558,6 +569,49 @@ section {
   top: 70%;
   right: 13%;
   transform: rotate(110deg);
+}
+
+.faqs {
+  width: 52%;
+}
+
+.faq-title {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.faq-answer {
+  font-size: 20px;
+  font-weight: 500;
+  color: #bebdbd;
+}
+
+.footer-content {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  gap: 2em;
+}
+
+.footer-list li {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.footer-copyright {
+  font-size: 12.8px;
+  font-weight: 700;
+  color: white;
 }
 
 @media (max-width: 64em) {
