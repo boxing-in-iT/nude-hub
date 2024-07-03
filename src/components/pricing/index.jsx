@@ -47,7 +47,7 @@ const Pricing = () => {
             </div>
             <div className="card-footnote">One credit - One picture</div>
           </div>
-          <div className="pricing-card">
+          <div className="pricing-card elite-pricing-card">
             {/* <div className="card-header">lifetime</div> */}
             <div className="card-title">Ultra Plan</div>
             <div className="card-subtitle">600 credits</div>

@@ -397,6 +397,15 @@ section {
   text-align: center;
 }
 
+.elite-pricing-card {
+  border: 2px solid white;
+  border-radius: 16px;
+  width: 313px;
+  height: 416px;
+  text-align: center;
+  background: linear-gradient(151.31deg, #ff4d6d 1.4%, #4b9cae 98.07%);
+}
+
 .card-title {
   font-size: 31.5px;
   font-weight: 700;
@@ -447,6 +456,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .old-price {
@@ -465,6 +475,12 @@ section {
   font-weight: 900;
 
   margin-left: 11%;
+}
+
+.card-footnote {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ffffff;
 }
 
 .example-blue-logo {
