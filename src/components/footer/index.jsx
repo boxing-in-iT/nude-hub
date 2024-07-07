@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.css";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
           <li>Refund Policy</li>
           <li>Contact/Support</li>
         </ul>
-        <div>
+        <div className="footer-cp">
           <span className="footer-copyright">
             2024 &copy; NUDEHUB. All Rights Reserved.
           </span>

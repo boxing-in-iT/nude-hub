@@ -1,124 +1,125 @@
-import React from "react";
-
+import React, { useState, useRef, useEffect } from "react";
 import fullHeart from "../../assets/pricing/fullHeart.svg";
 import emptyHeart from "../../assets/pricing/emptyHeart.svg";
+import "./index.css";
 
 const Pricing = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef(null);
+
+  const handleScroll = () => {
+    const scrollLeft = containerRef.current.scrollLeft;
+    const cardWidth = containerRef.current.firstChild.clientWidth;
+    const index = Math.round(scrollLeft / cardWidth);
+    setActiveIndex(index);
+  };
+
+  const handleDotClick = (index) => {
+    const cardWidth = containerRef.current.firstChild.clientWidth;
+    containerRef.current.scrollTo({
+      left: cardWidth * index,
+      behavior: "smooth",
+    });
+    setActiveIndex(index);
+  };
+
+  useEffect(() => {
+    const container = containerRef.current;
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const cards = [
+    {
+      title: "One",
+      subtitle: "1 credit",
+      features: [
+        "Excellent quality (UHD)",
+        "Body type trait access",
+        "Age trait access",
+        "No watermark",
+        "No queue",
+        "Undress Mode",
+      ],
+      oldPrice: "€4",
+      newPrice: "€2",
+      footnote: "One credit - One picture",
+    },
+    {
+      title: "Ultra Plan",
+      subtitle: "600 credits",
+      features: [
+        "Excellent quality (UHD)",
+        "Body type trait access",
+        "Age trait access",
+        "No watermark",
+        "No queue",
+        "Undress Mode",
+      ],
+      oldPrice: "€31.5",
+      newPrice: "€15.75/mo",
+      footnote: "For a total €188.99",
+    },
+    {
+      title: "Super Plan",
+      subtitle: "90 credits",
+      features: [
+        "Excellent quality (UHD)",
+        "Body type trait access",
+        "Age trait access",
+        "No watermark",
+        "No queue",
+        "Undress Mode",
+      ],
+      oldPrice: "€14.84",
+      newPrice: "€7.42/mo",
+      footnote: "For a total €88.99",
+    },
+  ];
+
   return (
     <section className="pricing-section">
       <div className="pricing-container">
         <h1 className="pricing-title">
           Pricing <span style={{ color: "#DE7084" }}>&</span> plans
         </h1>
-        <div className="pricing-cards">
-          <div className="pricing-card">
-            {/* <div className="card-header">lifetime</div> */}
-            <div className="card-title">One</div>
-            <div className="card-subtitle">1 credit</div>
-            <ul className="card-features">
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                Excellent quality (UHD)
-              </li>
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                Body type trait access
-              </li>
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                Age trait access
-              </li>
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                No watermark
-              </li>
-              <li className="card-feature">
-                <img src={emptyHeart} alt="empty heart" />
-                No queue
-              </li>
-              <li className="card-feature">
-                <img src={emptyHeart} alt="empty heart" />
-                Undress Mode
-              </li>
-            </ul>
-            <div className="card-price">
-              <span className="old-price">€4</span>
-              <span className="new-price">€2</span>
+        <div className="pricing-cards" ref={containerRef}>
+          {cards.map((card, index) => (
+            <div
+              className={`pricing-card ${
+                card.title === "Ultra Plan" ? "elite-pricing-card" : ""
+              }`}
+              key={index}
+            >
+              <div className="card-title">{card.title}</div>
+              <div className="card-subtitle">{card.subtitle}</div>
+              <ul className="card-features">
+                {card.features.map((feature, i) => (
+                  <li className="card-feature" key={i}>
+                    <img
+                      src={i < 4 ? fullHeart : emptyHeart}
+                      alt={i < 4 ? "full heart" : "empty heart"}
+                    />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <div className="card-price">
+                <span className="old-price">{card.oldPrice}</span>
+                <span className="new-price">{card.newPrice}</span>
+              </div>
+              <div className="card-footnote">{card.footnote}</div>
             </div>
-            <div className="card-footnote">One credit - One picture</div>
-          </div>
-          <div className="pricing-card elite-pricing-card">
-            {/* <div className="card-header">lifetime</div> */}
-            <div className="card-title">Ultra Plan</div>
-            <div className="card-subtitle">600 credits</div>
-            <ul className="card-features">
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                Excellent quality (UHD)
-              </li>
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                Body type trait access
-              </li>
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                Age trait access
-              </li>
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                No watermark
-              </li>
-              <li className="card-feature">
-                <img src={emptyHeart} alt="empty heart" />
-                No queue
-              </li>
-              <li className="card-feature">
-                <img src={emptyHeart} alt="empty heart" />
-                Undress Mode
-              </li>
-            </ul>
-            <div className="card-price">
-              <span className="old-price">€31.5</span>
-              <span className="new-price">€15.75/mo</span>
-            </div>
-            <div className="card-footnote">For a total €188.99</div>
-          </div>
-          <div className="pricing-card">
-            {/* <div className="card-header">lifetime</div> */}
-            <div className="card-title">Super Plan</div>
-            <div className="card-subtitle">90 credits</div>
-            <ul className="card-features">
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                Excellent quality (UHD)
-              </li>
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                Body type trait access
-              </li>
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                Age trait access
-              </li>
-              <li className="card-feature">
-                <img src={fullHeart} alt="full heart" />
-                No watermark
-              </li>
-              <li className="card-feature">
-                <img src={emptyHeart} alt="empty heart" />
-                No queue
-              </li>
-              <li className="card-feature">
-                <img src={emptyHeart} alt="empty heart" />
-                Undress Mode
-              </li>
-            </ul>
-            <div className="card-price">
-              <span className="old-price">€14.84</span>
-              <span className="new-price">€7.42/mo</span>
-            </div>
-            <div className="card-footnote">For a total €88.99</div>
-          </div>
+          ))}
+        </div>
+        <div className="dots-container">
+          {cards.map((_, index) => (
+            <div
+              key={index}
+              className={`dot ${index === activeIndex ? "active" : ""}`}
+              onClick={() => handleDotClick(index)}
+            ></div>
+          ))}
         </div>
       </div>
     </section>

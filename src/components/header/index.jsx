@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/header/logo.svg";
 import boy from "../../assets/header/GenderMale.svg";
 import girl from "../../assets/header/GenderFemale.svg";
 
 const Header = () => {
+  const [activeGender, setActiveGender] = useState("girl");
+
   return (
     <header>
       <div className="header-content">
         <div className="header-box">
           <img className="header-logo" src={logo} alt="logo" />
           <div className="header-box-genders">
-            <div className="header-box-gender">
+            <div
+              className={`header-box-gender ${
+                activeGender === "boy" ? "active-boy" : ""
+              }`}
+              onClick={() => setActiveGender("boy")}
+            >
               <img src={boy} alt="boys" />
               <p>boys</p>
             </div>
-            <div className="header-box-gender">
+            <div
+              className={`header-box-gender ${
+                activeGender === "girl" ? "active-girl" : ""
+              }`}
+              onClick={() => setActiveGender("girl")}
+            >
               <img src={girl} alt="girls" />
               <p>girls</p>
             </div>

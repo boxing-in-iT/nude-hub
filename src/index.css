@@ -17,7 +17,9 @@ body {
   background-blend-mode: overlay;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  /* background-size: cover; */
+
+  overflow-x: hidden;
 }
 
 header {
@@ -27,11 +29,6 @@ header {
   border-bottom: 1px solid #5e5e5e;
   display: flex;
   align-items: center;
-}
-
-footer {
-  background-color: #f76e85;
-  height: 81.59px;
 }
 
 .header-content {
@@ -57,13 +54,43 @@ footer {
   margin-left: 20px;
 }
 
-.header-box-gender {
+/* .header-box-gender {
   color: #ffffff;
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 16px;
   font-weight: 700;
+} */
+
+.header-box-gender {
+  position: relative;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.header-box-gender::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.header-box-gender.active-boy::after {
+  background: blue;
+}
+
+.header-box-gender.active-girl::after {
+  background: pink;
 }
 
 nav {
@@ -107,192 +134,6 @@ section {
   align-items: center;
   position: relative;
   color: #ffffff;
-}
-
-.welcome-column {
-  width: 70%;
-  min-height: 80vh;
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.welcome-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.welcome-container-box {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  font-family: "Arial", sans-serif;
-  font-weight: bold;
-  font-size: 6em;
-}
-.logo .nude {
-  color: #ffffff; /* Белый цвет для "NUDE" */
-}
-.logo .hub {
-  color: #e79a9a; /* Розовый цвет для "HUB" */
-}
-.logo .ai {
-  font-size: 0.2em;
-  vertical-align: 3em; /* Поднятие "AI" выше */
-  margin-left: 5px;
-  border: 2px solid #ffffff; /* Белая рамка вокруг "AI" */
-  border-radius: 50%;
-  padding: 5px;
-  color: #ffffff; /* Белый цвет для "AI" */
-}
-
-.logo .ai .a {
-  color: #de7084; /* Цвет для "A" */
-}
-.logo .ai .i {
-  color: #4b9cae; /* Цвет для "I" */
-}
-
-.welcome-container-plashka {
-  width: 100%;
-  display: flex;
-  border-radius: 30px;
-  border: 1px solid #ffffff;
-  background: linear-gradient(to right, #bc5567, #343434, #343434, #4b9cae);
-  padding: 20px 80px;
-}
-
-.welcome-container-plashka-left-box {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: self-start;
-  justify-content: space-around;
-}
-
-.welcome-container-plashka-right-box {
-  width: 30%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-.welcome-container-plashka-box-title {
-  font-size: 36.83px;
-  font-weight: 900;
-  color: #ffffff;
-
-  margin: 0;
-  padding: 0;
-}
-
-.welcome-container-plashka-box-p {
-  font-size: 16px;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.welcome-container-plashka-button {
-  border-radius: 10px;
-  background: linear-gradient(#de7184, #bc5567);
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  font-size: 15.88px;
-  font-weight: 700;
-  padding: 10px 20px;
-  margin-left: 20px;
-  cursor: pointer;
-  margin-left: 0;
-}
-
-.elipse-bg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.elipse-bg::before {
-  content: "";
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  background: linear-gradient(
-    180deg,
-    rgba(220, 111, 130, 0.46) 36.55%,
-    rgba(75, 156, 174, 0.46) 65.27%
-  );
-  border-radius: 50%;
-  filter: blur(30px);
-  z-index: -1;
-}
-
-.stars {
-  position: relative;
-}
-
-.star-1 {
-  position: absolute;
-  top: 10%;
-  right: 50%;
-}
-
-.star-2 {
-  transform: rotate(110deg);
-  width: 2%;
-  position: absolute;
-  top: 5%;
-  right: 32%;
-}
-
-.star-3 {
-  transform: rotate(320deg);
-  position: absolute;
-  top: 10%;
-  right: 12%;
-}
-
-.star-4 {
-  transform: rotate(320deg);
-  width: 2%;
-  position: absolute;
-  top: 30%;
-  right: 12%;
-}
-
-.star-5 {
-  transform: rotate(90deg);
-  width: 2%;
-  position: absolute;
-  top: 30%;
-  right: 46%;
-}
-
-.star-6 {
-  transform: rotate(90deg);
-  width: 2%;
-  position: absolute;
-  top: 14%;
-  right: 33.5%;
-}
-
-.star-7 {
-  transform: rotate(90deg);
-  position: absolute;
-  top: 8%;
-  right: 18%;
 }
 
 /* Examples */
@@ -368,6 +209,7 @@ section {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 2em;
   margin-top: 2em;
 }
@@ -376,124 +218,6 @@ section {
   border: 1px solid #cf6578;
   border-radius: 8px;
   padding: 10px;
-}
-
-.pricing-section {
-  min-height: 60vh;
-  display: flex;
-}
-
-.pricing-container {
-  width: 85%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 2em;
-}
-
-.pricing-cards {
-  display: flex;
-  justify-content: center;
-
-  gap: 5em;
-}
-
-.pricing-card {
-  border: 2px solid white;
-  border-radius: 16px;
-  background: linear-gradient(180deg, #ff7e96 0%, #e9667d 46.5%, #f75a76 100%);
-  width: 313px;
-  /* height: 416px; */
-  /* padding: */
-  padding: 50px 10px;
-  text-align: center;
-}
-
-.elite-pricing-card {
-  border: 2px solid white;
-  border-radius: 16px;
-  width: 313px;
-  height: 416px;
-  text-align: center;
-  background: linear-gradient(151.31deg, #ff4d6d 1.4%, #4b9cae 98.07%);
-}
-
-.card-title {
-  font-size: 31.5px;
-  font-weight: 700;
-}
-
-.card-subtitle {
-  font-size: 19.05px;
-  font-weight: 700;
-  color: #000000;
-}
-
-.card-features {
-  list-style: none;
-
-  padding: 0;
-  margin: 20px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin: 0 auto;
-
-  padding-left: 40px;
-}
-
-.card-features li {
-  margin: 10px 0;
-  text-align: left;
-}
-
-.card-features .card-feature {
-  display: flex;
-  align-items: center;
-}
-
-.card-features .card-feature img {
-  margin-right: 10px; /* Adjust the value to your preference */
-}
-
-.card-price {
-  width: 80%;
-  font-size: 1.5em;
-  margin: 0 auto;
-  background: linear-gradient(180deg, #343434 0%, #1a1a1a 100%);
-  box-shadow: 0px 4px 10px 0px #00000033;
-  border-radius: 9px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.old-price {
-  text-decoration: line-through;
-  margin-right: 10px;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.new-price {
-  color: white;
-  font-weight: bold;
-}
-
-.pricing-title {
-  font-size: 24px;
-  font-weight: 900;
-
-  margin-left: 11%;
-}
-
-.card-footnote {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #ffffff;
 }
 
 .example-blue-logo {
@@ -588,87 +312,27 @@ section {
   color: #bebdbd;
 }
 
-.footer-content {
-  width: 50%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-list {
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-  gap: 2em;
-}
-
-.footer-list li {
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.footer-copyright {
-  font-size: 12.8px;
-  font-weight: 700;
-  color: white;
-}
-
 @media (max-width: 64em) {
-  .main-photo {
-    width: 337.37px;
+  .example-dating-apps-container {
+    gap: 0.5em;
+    margin-top: 1em;
   }
 
-  .logo {
-    font-size: 4em;
+  .example-dating-app {
+    padding: 2px;
   }
 
-  .logo-img {
-    width: 150%;
-  }
-
-  .welcome-container {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .welcome-container-plashka {
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0;
-    height: 540px;
-  }
-  .welcome-container-plashka-left-box {
-    padding-top: 50px;
+  .faqs {
     width: 90%;
-    align-items: flex-start;
   }
 
-  .welcome-container-plashka-box-title {
-    font-size: 20px;
+  .faq-title {
+    font-size: 14px;
     font-weight: 900;
-    margin: 0;
-    padding: 0;
   }
 
-  .welcome-container-plashka-box-p {
-    font-size: 12px;
-  }
-
-  .welcome-container-plashka-button {
-    margin-top: 3em;
-    border-radius: 15px;
-    width: 227px;
-    height: 54px;
-    padding: 0;
-  }
-
-  .welcome-container-plashka-right-box {
-    width: 100%;
+  .faq-answer {
+    font-size: 14px;
+    font-weight: 900;
   }
 }

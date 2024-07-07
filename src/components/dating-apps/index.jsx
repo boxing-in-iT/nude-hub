@@ -1,5 +1,9 @@
 import React from "react";
 import match from "../../assets/examples/match.svg";
+import happn from "../../assets/datingApps/happn.svg";
+import tinder from "../../assets/datingApps/tinder.svg";
+import badoo from "../../assets/datingApps/badoo.svg";
+import okcupid from "../../assets/datingApps/okcupid.svg";
 
 const DatingApps = () => {
   return (
@@ -11,16 +15,16 @@ const DatingApps = () => {
           <img src={match} />
         </div>
         <div className="example-dating-app">
-          <img src={match} />
+          <img src={happn} />
         </div>
         <div className="example-dating-app">
-          <img src={match} />
+          <img src={tinder} />
         </div>
         <div className="example-dating-app">
-          <img src={match} />
+          <img src={badoo} />
         </div>
         <div className="example-dating-app">
-          <img src={match} />
+          <img src={okcupid} />
         </div>
       </div>
     </section>

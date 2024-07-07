@@ -1,0 +1,153 @@
+.pricing-section {
+  min-height: 60vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.pricing-container {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 70px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.pricing-card {
+  border: 2px solid white;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ff7e96 0%, #e9667d 46.5%, #f75a76 100%);
+  min-width: 313px;
+  padding: 50px 10px;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.elite-pricing-card {
+  border: 2px solid white;
+  border-radius: 16px;
+  width: 313px;
+  height: 416px;
+  text-align: center;
+  background: linear-gradient(151.31deg, #ff4d6d 1.4%, #4b9cae 98.07%);
+  scroll-snap-align: start;
+}
+
+.card-title {
+  font-size: 31.5px;
+  font-weight: 700;
+}
+
+.card-subtitle {
+  font-size: 19.05px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.card-features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+.card-features li {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.card-features .card-feature {
+  display: flex;
+  align-items: center;
+}
+
+.card-features .card-feature img {
+  margin-right: 10px;
+}
+
+.card-price {
+  width: 80%;
+  font-size: 1.5em;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #343434 0%, #1a1a1a 100%);
+  box-shadow: 0px 4px 10px 0px #00000033;
+  border-radius: 9px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  margin-right: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.new-price {
+  color: white;
+  font-weight: bold;
+}
+
+.pricing-title {
+  font-size: 24px;
+  font-weight: 900;
+  margin-left: 11%;
+}
+
+.card-footnote {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #f75a76;
+}
+
+@media (max-width: 64em) {
+  .pricing-container {
+    width: 90%;
+  }
+
+  .pricing-cards {
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .pricing-card {
+    width: 300px;
+    height: 398px;
+  }
+}

@@ -1,0 +1,303 @@
+.welcome-column {
+  width: 70%;
+  min-height: 80vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-container-box {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 6em;
+}
+
+.logo .nude {
+  color: #ffffff; /* Белый цвет для "NUDE" */
+}
+
+.logo .hub {
+  color: #e79a9a; /* Розовый цвет для "HUB" */
+}
+
+.logo .ai {
+  font-size: 0.2em;
+  vertical-align: 3em; /* Поднятие "AI" выше */
+  margin-left: 5px;
+  border: 2px solid #ffffff; /* Белая рамка вокруг "AI" */
+  border-radius: 50%;
+  padding: 5px;
+  color: #ffffff; /* Белый цвет для "AI" */
+}
+
+.logo .ai .a {
+  color: #de7084; /* Цвет для "A" */
+}
+
+.logo .ai .i {
+  color: #4b9cae; /* Цвет для "I" */
+}
+
+.elipse-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.elipse-bg::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: linear-gradient(
+    180deg,
+    rgba(220, 111, 130, 0.46) 36.55%,
+    rgba(75, 156, 174, 0.46) 65.27%
+  );
+  border-radius: 50%;
+  filter: blur(30px);
+  z-index: -1;
+}
+
+.plashka {
+  width: 1096px;
+  height: 255px;
+  background: linear-gradient(
+    93.55deg,
+    #bc5567 0.43%,
+    #343434 44.95%,
+    #343434 50.66%,
+    #4b9cae 94.58%
+  );
+  border-radius: 30px;
+  border: 1px solid #ffffff;
+}
+
+.plashka-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.plashka-box-left {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 60px;
+  padding-bottom: 32px;
+}
+
+.plashka-title {
+  font-size: 36px;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  margin-top: 22px;
+}
+
+.plashka-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.plashka-button {
+  width: 227px;
+  height: 54px;
+  background: linear-gradient(138.47deg, #de7184 36.89%, #bc5567 94.18%);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  border-radius: 15px;
+  border: 1px solid #ffffff;
+  margin-top: 28px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.plashka-box-right {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.girl-img {
+  position: absolute;
+  left: 50px;
+  z-index: 1;
+}
+
+.nude-girl-img {
+  position: relative;
+
+  z-index: 0;
+}
+
+.stars {
+  position: relative;
+}
+
+.star-1 {
+  position: absolute;
+  top: 20%;
+  right: 50%;
+  width: 4%;
+}
+
+.star-2 {
+  transform: rotate(110deg);
+  width: 2%;
+  position: absolute;
+  top: 15%;
+  right: 32%;
+}
+
+.star-3 {
+  transform: rotate(320deg);
+  position: absolute;
+  top: 20%;
+  right: 12%;
+  width: 4%;
+}
+
+.star-4 {
+  transform: rotate(320deg);
+  width: 2%;
+  position: absolute;
+  top: 40%;
+  right: 12%;
+}
+
+.star-5 {
+  transform: rotate(90deg);
+  width: 2%;
+  position: absolute;
+  top: 40%;
+  right: 50%;
+}
+
+.star-6 {
+  transform: rotate(90deg);
+  width: 2%;
+  position: absolute;
+  top: 22%;
+  right: 33.5%;
+}
+
+.star-7 {
+  transform: rotate(90deg);
+  position: absolute;
+  top: 18%;
+  right: 18%;
+  width: 2%;
+}
+
+@media (max-width: 64em) {
+  #welcome {
+    margin-top: 2em;
+  }
+
+  .welcome-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .plashka-content {
+    flex-direction: column;
+  }
+
+  .plashka-box-left {
+    width: 90%;
+    padding: 0;
+  }
+
+  .plashka-title {
+    font-size: 20px;
+  }
+
+  .plashka-subtitle {
+    font-size: 12px;
+  }
+
+  .main-photo {
+    width: 337.37px;
+  }
+
+  .logo {
+    font-size: 4em;
+  }
+
+  .logo-img {
+    width: 229px;
+  }
+
+  .plashka {
+    width: 351px;
+    height: 540px;
+  }
+
+  .star-1 {
+    top: 10%;
+    left: 20%;
+  }
+
+  .star-2 {
+    top: 25%;
+    right: 12%;
+    width: 4%;
+  }
+
+  .star-3 {
+    top: 20%;
+  }
+
+  .star-4 {
+    display: none;
+  }
+
+  .star-5 {
+    top: 15%;
+    width: 4%;
+  }
+
+  .star-6 {
+    top: 25%;
+    left: 18%;
+    width: 4%;
+  }
+
+  .star-7 {
+    top: 10%;
+    width: 4%;
+  }
+}
