@@ -13,14 +13,34 @@ const PhotoSlider = ({ image1, image2 }) => {
     }
   };
 
+  const handleTouchMove = (e) => {
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      const touch = e.touches[0];
+      const offsetY = touch.clientY - rect.top;
+      const newValue = (offsetY / rect.height) * 100;
+      setValue(Math.max(0, Math.min(100, newValue)));
+    }
+  };
+
   const handleMouseUp = () => {
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
   };
 
+  const handleTouchEnd = () => {
+    document.removeEventListener("touchmove", handleTouchMove);
+    document.removeEventListener("touchend", handleTouchEnd);
+  };
+
   const handleMouseDown = () => {
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
+  };
+
+  const handleTouchStart = () => {
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleTouchEnd);
   };
 
   return (
@@ -41,6 +61,7 @@ const PhotoSlider = ({ image1, image2 }) => {
         className="example-card-divider"
         style={{ top: `${value}%` }}
         onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
       />
     </div>
   );

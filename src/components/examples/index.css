@@ -1,0 +1,91 @@
+.example-container {
+  position: relative;
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-title {
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.example-cards-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.example-card {
+  position: relative;
+  width: 250px;
+  height: 400px;
+  overflow: hidden;
+  border: 1px solid #de708499;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+.example-card-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.example-card-divider {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 5px;
+  background: #ff4081;
+  z-index: 1;
+  cursor: ns-resize;
+  transform: translateY(-50%);
+  touch-action: none;
+}
+
+.example-subtitle {
+  margin-top: 5em;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+@media (max-width: 64em) {
+  #examples-section {
+    min-height: 50vh;
+  }
+
+  .example-title-box {
+    width: 80%;
+  }
+
+  .example-title {
+    font-size: 16px;
+  }
+
+  .example-container {
+    width: 90%;
+  }
+
+  .example-cards-container {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
+
+  .example-card {
+    min-width: 150px;
+    height: 248px;
+  }
+
+  .example-card-divider {
+    height: 10px;
+  }
+}

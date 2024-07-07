@@ -11,13 +11,13 @@ import Footer from "./components/footer";
 function App() {
   return (
     <>
-      {/* <Header /> */}
-      <WelcomePage />
-      {/* <Examples /> */}
-      {/* <DatingApps /> */}
+      <Header />
+      {/* <WelcomePage />
+      <Examples />
+      <DatingApps />
       <Pricing />
       <Faq />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }

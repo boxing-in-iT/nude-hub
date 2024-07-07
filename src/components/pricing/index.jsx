@@ -6,21 +6,35 @@ import "./index.css";
 const Pricing = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef(null);
+  const isScrollingRef = useRef(false);
+  const animationFrameRef = useRef(null);
 
   const handleScroll = () => {
-    const scrollLeft = containerRef.current.scrollLeft;
-    const cardWidth = containerRef.current.firstChild.clientWidth;
-    const index = Math.round(scrollLeft / cardWidth);
-    setActiveIndex(index);
+    if (isScrollingRef.current) return;
+    if (animationFrameRef.current)
+      cancelAnimationFrame(animationFrameRef.current);
+
+    animationFrameRef.current = requestAnimationFrame(() => {
+      const scrollLeft = containerRef.current.scrollLeft;
+      const cardWidth = containerRef.current.firstChild.clientWidth;
+      const index = Math.round(scrollLeft / cardWidth);
+      setActiveIndex(index);
+      animationFrameRef.current = null;
+    });
   };
 
   const handleDotClick = (index) => {
+    isScrollingRef.current = true;
     const cardWidth = containerRef.current.firstChild.clientWidth;
     containerRef.current.scrollTo({
       left: cardWidth * index,
       behavior: "smooth",
     });
-    setActiveIndex(index);
+
+    setTimeout(() => {
+      isScrollingRef.current = false;
+      setActiveIndex(index);
+    }, 500); // Adjust the timeout duration based on the scroll animation duration
   };
 
   useEffect(() => {

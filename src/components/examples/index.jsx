@@ -9,13 +9,18 @@ import pinkLogo from "../../assets/examples/pinkLogo.svg";
 import blueStar from "../../assets/main/blueStar.svg";
 import pinkStar from "../../assets/main/star.svg";
 
+import "./index.css";
+
 const Examples = () => {
   return (
-    <section>
-      <h1 className="example-title">
-        Beautiful <span style={{ color: "#DE7084" }}>girls</span> will become
-        even more beautiful right now
-      </h1>
+    <section id="examples-section">
+      <div className="example-title-box">
+        <h1 className="example-title">
+          Beautiful <span style={{ color: "#DE7084" }}>girls</span> will become
+          even more beautiful right now
+        </h1>
+      </div>
+
       <div className="example-container">
         <div className="example-cards-container">
           <PhotoSlider image1={img1} image2={img2} />

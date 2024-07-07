@@ -138,65 +138,6 @@ section {
 
 /* Examples */
 
-.example-container {
-  position: relative;
-  width: 75%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.example-title {
-  font-size: 24px;
-  font-weight: 900;
-  text-align: center;
-}
-
-.example-cards-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1em;
-}
-
-.example-card {
-  position: relative;
-  width: 250px;
-  height: 400px;
-  overflow: hidden;
-  border: 1px solid #de708499;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  user-select: none;
-}
-
-.example-card-img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.example-card-divider {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
-  height: 5px;
-  background: #ff4081;
-  z-index: 1;
-  cursor: ns-resize;
-  transform: translateY(-50%);
-}
-
-.example-subtitle {
-  margin-top: 5em;
-  font-size: 14px;
-  font-weight: 900;
-}
-
 .dating-apps-section {
   min-height: 10vh;
   display: flex;
@@ -315,11 +256,16 @@ section {
 @media (max-width: 64em) {
   .example-dating-apps-container {
     gap: 0.5em;
-    margin-top: 1em;
+    margin-top: 0;
   }
 
   .example-dating-app {
     padding: 2px;
+  }
+
+  .dating-apps-section {
+    justify-content: flex-start;
+    min-height: 5vh;
   }
 
   .faqs {
