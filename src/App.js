@@ -7,16 +7,20 @@ import DatingApps from "./components/dating-apps";
 import Pricing from "./components/pricing";
 import Faq from "./components/faq";
 import Footer from "./components/footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Main from "./pages/main";
+import Login from "./pages/login";
 
 function App() {
   return (
     <>
       <Header />
-      <WelcomePage />
-      <Examples />
-      <DatingApps />
-      <Pricing />
-      <Faq />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
       <Footer />
     </>
   );
