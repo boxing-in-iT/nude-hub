@@ -12,12 +12,12 @@ function App() {
   return (
     <>
       <Header />
-      {/* <WelcomePage />
+      <WelcomePage />
       <Examples />
       <DatingApps />
       <Pricing />
       <Faq />
-      <Footer /> */}
+      <Footer />
     </>
   );
 }

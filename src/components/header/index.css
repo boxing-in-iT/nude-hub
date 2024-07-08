@@ -67,6 +67,7 @@ header {
 nav {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .header-box-menu {
@@ -131,6 +132,18 @@ nav {
   cursor: pointer;
 }
 
+.header-close-button {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
 .menu-backdrop {
   display: none;
   position: fixed;
@@ -164,7 +177,7 @@ nav {
   }
 
   .header-box.menu-open nav {
-    display: block;
+    display: flex;
     position: fixed;
     top: 20%;
     left: 0;
@@ -179,7 +192,7 @@ nav {
     transition: all 0.3s ease;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 5em;
+    padding-top: 2em;
     padding-right: 2em;
     gap: 1em;
     align-items: flex-start;
@@ -188,7 +201,6 @@ nav {
 
   .header-box.menu-open nav ul {
     flex-direction: column;
-
     font-size: 36px;
     gap: 20em;
   }
@@ -200,6 +212,10 @@ nav {
 
   .header-box.menu-open .header-login-button {
     display: none;
+  }
+
+  .header-close-button {
+    display: block;
   }
 
   .menu-backdrop {

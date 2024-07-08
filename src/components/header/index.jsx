@@ -45,6 +45,14 @@ const Header = () => {
         </div>
         <div className={`header-box ${isMenuOpen ? "menu-open" : ""}`}>
           <nav>
+            {isMenuOpen && (
+              <button
+                className="header-close-button"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                &times;
+              </button>
+            )}
             <ul className="header-box-menu">
               <li className="header-box-menu-item">Home</li>
               <li className="header-box-menu-item">Examples</li>
