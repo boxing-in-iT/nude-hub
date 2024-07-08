@@ -1,3 +1,5 @@
+/* index.css */
+
 header {
   width: 100vw;
   height: 76px;
@@ -5,6 +7,8 @@ header {
   border-bottom: 1px solid #5e5e5e;
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 1000;
 }
 
 .header-content {
@@ -98,6 +102,7 @@ nav {
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  cursor: pointer;
 }
 
 .header-hamburger-menu div {
@@ -126,6 +131,17 @@ nav {
   cursor: pointer;
 }
 
+.menu-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 500;
+}
+
 @media (max-width: 64em) {
   .header-content {
     width: 90%;
@@ -145,5 +161,48 @@ nav {
 
   .header-hamburger-menu {
     display: flex;
+  }
+
+  .header-box.menu-open nav {
+    display: block;
+    position: fixed;
+    top: 20%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: 80vw;
+    height: 50vh;
+    z-index: 10000;
+    background: #ff8c46;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 5em;
+    padding-right: 2em;
+    gap: 1em;
+    align-items: flex-start;
+    box-shadow: 120px black;
+  }
+
+  .header-box.menu-open nav ul {
+    flex-direction: column;
+
+    font-size: 36px;
+    gap: 20em;
+  }
+
+  .header-box.menu-open .header-box-menu {
+    display: block;
+    gap: 1em;
+  }
+
+  .header-box.menu-open .header-login-button {
+    display: none;
+  }
+
+  .menu-backdrop {
+    display: block;
   }
 }
