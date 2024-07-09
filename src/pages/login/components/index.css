@@ -3,7 +3,6 @@ form {
   height: 507px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 }
 
@@ -19,6 +18,7 @@ form input {
   height: 45px;
   font-size: 16px;
   font-weight: 400;
+  padding-left: 20px;
 }
 
 .form-logo {
@@ -33,12 +33,16 @@ form input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 5px;
+  margin-top: 41px;
+  color: #ffffff;
 }
 
 .form-switcher div {
   font-size: 20px;
   font-weight: 700;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .active {
@@ -52,11 +56,24 @@ form input {
   border: 2px solid #ffffff;
 }
 
+.form-subtitle {
+  margin-top: 30px;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 25px;
+}
+
 .buttons-box {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 31px;
 }
 
 .button-back {
@@ -88,4 +105,5 @@ form input {
   font-weight: 700;
   cursor: pointer;
   text-decoration: underline;
+  margin-top: 60px;
 }

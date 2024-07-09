@@ -1,9 +1,6 @@
 import React from "react";
-import "./index.css";
-import logo from "../../../assets/loginPage/logo.svg";
-import Switcher from "./Switcher";
 
-const LoginForm = () => {
+const SignUp = () => {
   return (
     <form>
       <p className="form-subtitle">
@@ -12,15 +9,16 @@ const LoginForm = () => {
       <div className="input-box">
         <input type="text" placeholder="Enter your e-mail" />
         <input type="text" placeholder="Enter your password" />
+        <input type="text" placeholder="Repeat your password" />
       </div>
 
       <div className="buttons-box">
         <button className="button-back">Back</button>
-        <button className="button-login">Login</button>
+        <button className="button-login">Sign up</button>
       </div>
       <p className="forgot-link">Forgot password?</p>
     </form>
   );
 };
 
-export default LoginForm;
+export default SignUp;
