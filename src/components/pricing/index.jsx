@@ -130,7 +130,7 @@ const Pricing = () => {
           {cards.map((_, index) => (
             <div
               key={index}
-              className={`dot ${index === activeIndex ? "active" : ""}`}
+              className={`dot ${index === activeIndex ? "active-dot" : ""}`}
               onClick={() => handleDotClick(index)}
             ></div>
           ))}

@@ -132,7 +132,7 @@
   cursor: pointer;
 }
 
-.dot.active {
+.dot.active-dot {
   background-color: #f75a76;
 }
 
