@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Импортируйте useNavigate
 import "./index.css";
 import logo from "../../../assets/loginPage/logo.svg";
 import Switcher from "./Switcher";
 
 const LoginForm = () => {
+  const navigate = useNavigate(); // Создайте navigate
+
+  const handleBackClick = () => {
+    navigate("/"); // Навигация назад
+  };
+
   return (
     <form>
       <p className="form-subtitle">
@@ -15,8 +22,12 @@ const LoginForm = () => {
       </div>
 
       <div className="buttons-box">
-        <button className="button-back">Back</button>
-        <button className="button-login">Login</button>
+        <button type="button" className="button-back" onClick={handleBackClick}>
+          Back
+        </button>
+        <button type="submit" className="button-login">
+          Login
+        </button>
       </div>
       <p className="forgot-link">Forgot password?</p>
     </form>

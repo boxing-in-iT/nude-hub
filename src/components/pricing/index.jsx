@@ -92,7 +92,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="pricing-section">
+    <section className="pricing-section" id="pricing">
       <div className="pricing-container">
         <h1 className="pricing-title">
           Pricing <span style={{ color: "#DE7084" }}>&</span> plans

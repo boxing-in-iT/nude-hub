@@ -13,16 +13,16 @@ import Login from "./pages/login";
 
 function App() {
   return (
-    <>
-      <Header />
-      <BrowserRouter>
+    <BrowserRouter>
+      <>
+        <Header />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
         </Routes>
-      </BrowserRouter>
-      <Footer />
-    </>
+        <Footer />
+      </>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate(); // Создайте navigate
+
+  const handleBackClick = () => {
+    navigate("/"); // Навигация назад
+  };
   return (
     <form>
       <p className="form-subtitle">
@@ -13,7 +19,9 @@ const SignUp = () => {
       </div>
 
       <div className="buttons-box">
-        <button className="button-back">Back</button>
+        <button className="button-back" onClick={handleBackClick}>
+          Back
+        </button>
         <button className="button-login">Sign up</button>
       </div>
       <p className="forgot-link">Forgot password?</p>

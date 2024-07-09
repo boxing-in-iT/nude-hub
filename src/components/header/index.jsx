@@ -4,10 +4,23 @@ import boy from "../../assets/header/GenderMale.svg";
 import girl from "../../assets/header/GenderFemale.svg";
 
 import "./index.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [activeGender, setActiveGender] = useState("girl");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrollTo = (id) => {
+    let element = document.getElementById(id);
+
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+
+    // setClick(false);
+  };
 
   return (
     <header>
@@ -21,7 +34,9 @@ const Header = () => {
           <div></div>
         </div>
         <div className="header-box">
-          <img className="header-logo" src={logo} alt="logo" />
+          <Link to={"/"}>
+            <img className="header-logo" src={logo} alt="logo" />
+          </Link>
           <div className="header-box-genders">
             <div
               className={`header-box-gender ${
@@ -54,12 +69,34 @@ const Header = () => {
               </button>
             )}
             <ul className="header-box-menu">
-              <li className="header-box-menu-item">Home</li>
-              <li className="header-box-menu-item">Examples</li>
-              <li className="header-box-menu-item">Pricing</li>
-              <li className="header-box-menu-item">How to</li>
+              <li
+                onClick={() => scrollTo("welcome")}
+                className="header-box-menu-item"
+              >
+                Home
+              </li>
+              <li
+                onClick={() => scrollTo("examples-section")}
+                className="header-box-menu-item"
+              >
+                Examples
+              </li>
+              <li
+                onClick={() => scrollTo("pricing")}
+                className="header-box-menu-item"
+              >
+                Pricing
+              </li>
+              <li
+                onClick={() => scrollTo("faq")}
+                className="header-box-menu-item"
+              >
+                How to
+              </li>
             </ul>
-            <button className="header-login-button">Login</button>
+            <Link to="/login">
+              <button className="header-login-button">Login</button>
+            </Link>
           </nav>
           <button className="header-login-button-mobile">Login</button>
         </div>

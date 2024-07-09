@@ -187,11 +187,13 @@ nav {
     width: 80vw;
     height: 50vh;
     z-index: 10000;
-    background: #ff8c46;
+    background: #111111;
+    border: 2px solid #ffffff;
     border-radius: 15px;
     transition: all 0.3s ease;
     flex-direction: column;
     justify-content: flex-start;
+    padding-left: 1em;
     padding-top: 2em;
     padding-right: 2em;
     gap: 1em;

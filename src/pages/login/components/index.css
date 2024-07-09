@@ -43,6 +43,7 @@ form input {
   width: 100%;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .active {
