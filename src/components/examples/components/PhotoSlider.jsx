@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import wand from "../../../assets/welcome/MagicWand.svg";
 
 const PhotoSlider = ({ image1, image2 }) => {
   const [value, setValue] = useState(50);
@@ -63,6 +64,10 @@ const PhotoSlider = ({ image1, image2 }) => {
         onMouseDown={handleMouseDown}
         onTouchStart={handleTouchStart}
       />
+      <button className="create-ai-button">
+        <img src={wand} />
+        Create your AI
+      </button>
     </div>
   );
 };

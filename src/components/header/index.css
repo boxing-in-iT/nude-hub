@@ -83,6 +83,7 @@ nav {
 
 .header-box-menu-item {
   cursor: pointer;
+  font-size: calc(0.65 * var(--index));
 }
 
 .header-login-button {

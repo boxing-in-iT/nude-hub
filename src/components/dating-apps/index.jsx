@@ -7,27 +7,29 @@ import okcupid from "../../assets/datingApps/okcupid.svg";
 
 const DatingApps = () => {
   return (
-    <section className="dating-apps-section">
-      <h2 className="example-subtitle">WORKS FOR ALL DATING APPS</h2>
+    <div className="dating-apps-section">
+      <h2 className="datings-apps-subtitle">
+        WORKS FOR <span className="red">ALL DATING</span> APPS
+      </h2>
 
       <div className="example-dating-apps-container">
         <div className="example-dating-app">
-          <img src={match} />
+          <img src={match} className="example-dating-app-photo" />
         </div>
         <div className="example-dating-app">
-          <img src={happn} />
+          <img src={happn} className="example-dating-app-photo" />
         </div>
         <div className="example-dating-app">
-          <img src={tinder} />
+          <img src={tinder} className="example-dating-app-photo" />
         </div>
         <div className="example-dating-app">
-          <img src={badoo} />
+          <img src={badoo} className="example-dating-app-photo" />
         </div>
         <div className="example-dating-app">
-          <img src={okcupid} />
+          <img src={okcupid} className="example-dating-app-photo" />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -1,5 +1,22 @@
+.welcome {
+  width: 60%;
+  min-height: 80vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-box {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .welcome-column {
-  width: 70%;
+  width: 50%;
   min-height: 80vh;
   margin: 0 auto;
   display: flex;
@@ -8,25 +25,17 @@
   justify-content: center;
 }
 
-.welcome-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.welcome-container-box {
-  width: 50%;
-  height: 100%;
+.logo-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .logo {
   font-family: "Arial", sans-serif;
   font-weight: bold;
-  font-size: 6em;
+  font-size: calc(3 * var(--index));
 }
 
 .logo .nude {
@@ -35,6 +44,10 @@
 
 .logo .hub {
   color: #e79a9a; /* Розовый цвет для "HUB" */
+}
+
+.logo-img {
+  width: calc(18 * var(--index));
 }
 
 .logo .ai {
@@ -57,7 +70,7 @@
 
 .elipse-bg {
   position: relative;
-  width: 100%;
+  width: 80%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -75,7 +88,7 @@
     rgba(75, 156, 174, 0.46) 65.27%
   );
   border-radius: 50%;
-  filter: blur(30px);
+  filter: blur(60px);
   z-index: -1;
 }
 
@@ -168,136 +181,70 @@
 
 .star-1 {
   position: absolute;
-  top: 20%;
-  right: 50%;
-  width: 4%;
+  top: calc(4 * var(--index));
+  right: calc(12 * var(--index));
+  width: calc(2 * var(--index));
 }
 
 .star-2 {
-  transform: rotate(110deg);
-  width: 2%;
+  transform: rotate(90deg);
   position: absolute;
-  top: 15%;
-  right: 32%;
+  top: calc(12 * var(--index));
+  right: calc(12 * var(--index));
+  width: calc(1 * var(--index));
 }
 
 .star-3 {
   transform: rotate(320deg);
   position: absolute;
-  top: 20%;
-  right: 12%;
-  width: 4%;
+  top: calc(3 * var(--index));
+  right: calc(20 * var(--index));
+  width: calc(1 * var(--index));
 }
 
 .star-4 {
-  transform: rotate(320deg);
-  width: 2%;
+  transform: rotate(-20deg);
   position: absolute;
-  top: 40%;
-  right: 12%;
+  top: calc(4 * var(--index));
+  right: calc(28 * var(--index));
+  width: calc(2 * var(--index));
 }
 
 .star-5 {
   transform: rotate(90deg);
-  width: 2%;
   position: absolute;
-  top: 40%;
-  right: 50%;
+  top: calc(2 * var(--index));
+  right: calc(10 * var(--index));
+  width: calc(1 * var(--index));
 }
 
 .star-6 {
   transform: rotate(90deg);
-  width: 2%;
   position: absolute;
-  top: 22%;
-  right: 33.5%;
+  top: calc(5 * var(--index));
+  right: calc(21 * var(--index));
+  width: calc(1 * var(--index));
 }
 
 .star-7 {
   transform: rotate(90deg);
   position: absolute;
-  top: 18%;
-  right: 18%;
-  width: 2%;
+  top: calc(14 * var(--index));
+  right: calc(29 * var(--index));
+  width: calc(1 * var(--index));
+}
+
+.mobile {
+  display: none;
 }
 
 @media (max-width: 64em) {
-  #welcome {
-    margin-top: 2em;
-  }
-
-  .welcome-container {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .plashka-content {
+  .welcome {
     flex-direction: column;
+    min-height: 100vh;
   }
 
-  .plashka-box-left {
-    width: 90%;
-    padding: 0;
-  }
-
-  .plashka-title {
-    font-size: 20px;
-  }
-
-  .plashka-subtitle {
-    font-size: 12px;
-  }
-
-  .main-photo {
-    width: 337.37px;
-  }
-
-  .logo {
-    font-size: 4em;
-  }
-
-  .logo-img {
-    width: 229px;
-  }
-
-  .plashka {
-    width: 351px;
-    height: 540px;
-  }
-
-  .star-1 {
-    top: 10%;
-    left: 20%;
-  }
-
-  .star-2 {
-    top: 25%;
-    right: 12%;
-    width: 4%;
-  }
-
-  .star-3 {
-    top: 20%;
-  }
-
-  .star-4 {
-    display: none;
-  }
-
-  .star-5 {
-    top: 15%;
-    width: 4%;
-  }
-
-  .star-6 {
-    top: 25%;
-    left: 18%;
-    width: 4%;
-  }
-
-  .star-7 {
-    top: 10%;
-    width: 4%;
+  .exmpl {
+    align-items: flex-start;
   }
 }
