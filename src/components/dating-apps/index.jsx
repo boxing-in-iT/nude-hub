@@ -5,6 +5,8 @@ import tinder from "../../assets/datingApps/tinder.svg";
 import badoo from "../../assets/datingApps/badoo.svg";
 import okcupid from "../../assets/datingApps/okcupid.svg";
 
+import "./index.css";
+
 const DatingApps = () => {
   return (
     <div className="dating-apps-section">

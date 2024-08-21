@@ -1,0 +1,91 @@
+.dating-apps-section {
+  margin-top: calc(5 * var(--index));
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.datings-apps-subtitle {
+  margin: 0;
+  padding: 0;
+  font-size: calc(0.5 * var(--index));
+  font-weight: bold;
+}
+
+.example-dating-apps-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: calc(0.2 * var(--index));
+  margin-top: 2em;
+}
+
+.example-dating-app {
+  border: 1px solid #cf6578;
+  border-radius: 8px;
+  padding: calc(0.5 * var(--index)) calc(0.1 * var(--index));
+  background-color: #111111;
+}
+
+.example-dating-app-photo {
+  width: calc(3 * var(--index));
+}
+.dating-apps-section {
+  margin-top: calc(5 * var(--index));
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.datings-apps-subtitle {
+  margin: 0;
+  padding: 0;
+  font-size: calc(0.5 * var(--index));
+  font-weight: bold;
+}
+
+.example-dating-apps-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: calc(0.2 * var(--index));
+  margin-top: 2em;
+}
+
+.example-dating-app {
+  border: 1px solid #cf6578;
+  border-radius: 8px;
+  padding: calc(0.5 * var(--index)) calc(0.1 * var(--index));
+  background-color: #111111;
+}
+
+.example-dating-app-photo {
+  width: calc(3 * var(--index));
+}
+
+@media (max-width: 64em) {
+  .dating-apps-section {
+    margin-top: calc(2 * var(--index));
+  }
+
+  .datings-apps-subtitle {
+    font-size: calc(2 * var(--index));
+    text-align: center;
+  }
+
+  .example-dating-apps-container {
+    gap: calc(1 * var(--index));
+  }
+
+  .example-dating-app-photo {
+    width: calc(8 * var(--index));
+  }
+}

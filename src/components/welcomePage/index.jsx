@@ -10,11 +10,22 @@ const WelcomePage = () => {
   return (
     <section id="welcome">
       <div className="welcome elipse-bg">
+        <div className="logo-box mobile">
+          <img className="logo-img" src={logo} alt="logo" />
+          <div className="logo">
+            <span className="nude">NUDE</span>
+            <span className="hub">HUB</span>
+            <span className="ai">
+              <span className="a">A</span>
+              <span className="i">I</span>
+            </span>
+          </div>
+        </div>
         <div className="welcome-box exmpl">
           <WelcomeExamples />
         </div>
         <div className="welcome-box">
-          <div className="logo-box">
+          <div className="logo-box ">
             <img className="logo-img" src={logo} alt="logo" />
             <div className="logo">
               <span className="nude">NUDE</span>

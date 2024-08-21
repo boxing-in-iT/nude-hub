@@ -19,7 +19,7 @@ body {
   background-attachment: fixed;
   /* background-size: cover; */
 
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 :root {
@@ -173,6 +173,10 @@ section {
 }
 
 @media (max-width: 64em) {
+  .desktop {
+    display: none !important;
+  }
+
   .example-dating-apps-container {
     gap: 0.5em;
     margin-top: 0;

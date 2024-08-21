@@ -1,7 +1,6 @@
 .welcome-examples {
   width: 60%;
   display: flex;
-  align-items: flex-start;
   gap: calc(1 * var(--index));
 }
 
@@ -16,7 +15,9 @@
 }
 
 .welcome-example-photos {
-  width: calc(0.1 * var(--index));
+  display: flex;
+  flex-direction: column;
+  gap: calc(0.5 * var(--index));
 }
 
 .wrapper {
@@ -36,8 +37,6 @@
   display: block;
   width: calc(4 * var(--index));
   height: calc(4 * var(--index));
-  /* width: 100px;
-  height: 100px; */
   border-radius: 15px;
   object-fit: cover;
   object-position: top;
@@ -111,9 +110,11 @@
 }
 
 @media (max-width: 64em) {
-  /* .welcome-examples {
-    gap: calc(0.5 * var(--index));
-  } */
+  .welcome-examples {
+    width: 50%;
+    display: flex; /* Центрируем содержимое по горизонтали */
+    justify-content: center; /* Центрируем содержимое по вертикали */
+  }
 
   .example-card-divider {
     position: absolute;
@@ -142,5 +143,15 @@
   .welcome-example-photos-photo {
     width: calc(5 * var(--index));
     height: calc(5 * var(--index));
+  }
+
+  .create-ai-button {
+    padding: calc(0.5 * var(--index)) calc(1 * var(--index));
+    width: calc(12 * var(--index)) !important;
+    font-size: 12px;
+  }
+
+  .create-ai-button img {
+    width: calc(2 * var(--index));
   }
 }
