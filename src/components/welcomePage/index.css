@@ -69,7 +69,7 @@
 }
 
 .elipse-bg {
-  position: relative;
+  position: absolute;
   width: 80%;
   height: 100%;
   display: flex;
@@ -80,7 +80,7 @@
 .elipse-bg::before {
   content: "";
   position: absolute;
-  width: 80%;
+  width: 110%;
   height: 80%;
   background: linear-gradient(
     180deg,
@@ -151,6 +151,40 @@
   width: calc(1 * var(--index));
 }
 
+.star-8 {
+  transform: rotate(135deg);
+  position: absolute;
+  top: calc(13 * var(--index));
+  left: calc(7 * var(--index));
+  width: calc(2 * var(--index));
+}
+
+.star-9 {
+  transform: rotate(20deg);
+  position: absolute;
+  top: calc(20 * var(--index));
+  left: calc(4 * var(--index));
+  width: calc(1.2 * var(--index));
+}
+
+.star-10 {
+  transform: rotate(20deg);
+  position: absolute;
+  top: calc(2.2 * var(--index));
+  left: calc(20 * var(--index));
+  width: calc(0.9 * var(--index));
+}
+
+.rabbit-hole {
+  /* transform: rotate(-10deg); */
+
+  position: absolute;
+  z-index: -1;
+  top: calc(1 * var(--index));
+  left: calc(9 * var(--index));
+  width: calc(7 * var(--index));
+}
+
 .mobile {
   display: none;
 }
@@ -180,5 +214,8 @@
   .exmpl {
     width: 100%;
     align-items: center;
+  }
+
+  .rabbit-hole {
   }
 }

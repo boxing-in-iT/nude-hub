@@ -188,7 +188,7 @@ nav {
     width: 80vw;
     height: 50vh;
     z-index: 10000;
-    background: #111111;
+    background: #190d10;
     border: 2px solid #ffffff;
     border-radius: 15px;
     transition: all 0.3s ease;
@@ -206,6 +206,16 @@ nav {
     flex-direction: column;
     font-size: 360px;
     gap: 20em;
+  }
+
+  .header-box.menu-open ul {
+    flex-direction: column;
+    font-size: 24px; /* Increase the font size as needed */
+    gap: 2em; /* Adjust the gap between menu items */
+  }
+
+  .header-box-menu-item {
+    font-size: 36px;
   }
 
   .header-box.menu-open .header-box-menu {

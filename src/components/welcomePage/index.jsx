@@ -5,6 +5,7 @@ import star from "../../assets/main/star.svg";
 import blueStar from "../../assets/main/blueStar.svg";
 import DatingApps from "../dating-apps";
 import WelcomeExamples from "./components/welcome-examples";
+import rabbitHole from "../../assets/welcome/Vector.svg";
 
 const WelcomePage = () => {
   return (
@@ -44,9 +45,13 @@ const WelcomePage = () => {
       <img src={star} alt="star" className="star-2" />
       <img src={star} alt="star" className="star-3" />
       <img src={star} alt="star" className="star-4" />
+      <img src={star} alt="star" className="star-8" />
       <img src={blueStar} alt="star" className="star-5" />
       <img src={blueStar} alt="star" className="star-6" />
       <img src={blueStar} alt="star" className="star-7" />
+      <img src={blueStar} alt="star" className="star-9" />
+      <img src={blueStar} alt="star" className="star-10" />
+      <img src={rabbitHole} alt="star" className="rabbit-hole" />
     </section>
   );
 };
