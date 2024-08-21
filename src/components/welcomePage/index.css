@@ -151,10 +151,6 @@
   width: calc(1 * var(--index));
 }
 
-.desktop {
-  display: none;
-}
-
 .mobile {
   display: none;
 }
@@ -168,15 +164,13 @@
   }
 
   .logo-box {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .desktop {
-    display: none; /* Скрываем блок на мобильной версии */
+    display: none;
   }
 
   .mobile {

@@ -25,7 +25,7 @@ const WelcomePage = () => {
           <WelcomeExamples />
         </div>
         <div className="welcome-box">
-          <div className="logo-box ">
+          <div className="logo-box desktop">
             <img className="logo-img" src={logo} alt="logo" />
             <div className="logo">
               <span className="nude">NUDE</span>

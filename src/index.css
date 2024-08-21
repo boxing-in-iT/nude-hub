@@ -157,13 +157,17 @@ section {
   transform: rotate(110deg);
 }
 
-.faqs {
+.faq-title-box {
   width: 52%;
 }
 
 .faq-title {
-  font-size: 20px;
-  font-weight: 900;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.faqs {
+  width: 52%;
 }
 
 .faq-answer {
@@ -193,11 +197,26 @@ section {
     min-height: 5vh;
   }
 
+  .faq-title-box {
+    width: 90%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .faq-title-box {
+    margin: 0;
+    padding: 0;
+  }
+
+  .faq-title {
+    font-size: 20px;
+  }
+
   .faqs {
     width: 90%;
   }
 
-  .faq-title {
+  .faq-item-title {
     font-size: 14px;
     font-weight: 900;
   }

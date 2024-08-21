@@ -3,9 +3,14 @@ import React from "react";
 const Faq = () => {
   return (
     <section style={{ minHeight: "80vh" }} id="faq">
+      <div className="faq-title-box">
+        <h2 className="faq-title">
+          FAQs about NUDE<span className="red">HUB</span>
+        </h2>
+      </div>
       <div className="faqs">
         <div className="faq-item">
-          <h2 className="faq-title">
+          <h2 className="faq-item-title">
             What is NUDE<span style={{ color: "#DE7084" }}>HUB</span>? #1
             undress service in 2024!
           </h2>
@@ -17,7 +22,7 @@ const Faq = () => {
           </p>
         </div>
         <div className="faq-item">
-          <h2 className="faq-title">
+          <h2 className="faq-item-title">
             How do we make your deep{" "}
             <span style={{ color: "#DE7084" }}>nudes</span>?
           </h2>
@@ -28,7 +33,7 @@ const Faq = () => {
           </p>
         </div>
         <div className="faq-item">
-          <h2 className="faq-title">
+          <h2 className="faq-item-title">
             How to make a <span style={{ color: "#DE7084" }}>perfect fake</span>{" "}
             nude image?
           </h2>
@@ -41,7 +46,7 @@ const Faq = () => {
           </p>
         </div>
         <div className="faq-item">
-          <h2 className="faq-title">
+          <h2 className="faq-item-title">
             For how <span style={{ color: "#DE7084" }}>long images</span> are
             stored?
           </h2>
@@ -50,7 +55,7 @@ const Faq = () => {
           </p>
         </div>
         <div className="faq-item">
-          <h2 className="faq-title">
+          <h2 className="faq-item-title">
             How to <span style={{ color: "#DE7084" }}>nudify girls</span> from
             instagram?
           </h2>
