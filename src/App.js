@@ -10,6 +10,7 @@ import Footer from "./components/footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./pages/main";
 import Login from "./pages/login";
+import AccountPage from "./pages/account";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/account" element={<AccountPage />} />
         </Routes>
         <Footer />
       </>

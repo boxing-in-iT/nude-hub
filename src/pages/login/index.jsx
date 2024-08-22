@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import LoginForm from "./components/LoginForm";
 import Switcher from "./components/Switcher";
+import LoginForm from "./components/LoginForm";
 import SignUp from "./components/SignUp";
 
 const Login = () => {

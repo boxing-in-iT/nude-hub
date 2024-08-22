@@ -1,32 +1,26 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
+import AuthForm from "./AuthForm";
+import { fakeBackend } from "../../../fake-backend";
 
-const SignUp = () => {
-  const navigate = useNavigate(); // Создайте navigate
+const SignUpForm = () => {
+  const navigate = useNavigate();
 
-  const handleBackClick = () => {
-    navigate("/"); // Навигация назад
+  const handleSubmit = async ({ email, password, confirmPassword }) => {
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    const result = await fakeBackend.register(email, password);
+    if (result.success) {
+      // Успешная регистрация
+      navigate("/login"); // Переход на страницу входа после регистрации
+    } else {
+      alert(result.message); // Отображение сообщения об ошибке
+    }
   };
-  return (
-    <form>
-      <p className="form-subtitle">
-        Sign in or register for an account to access all features
-      </p>
-      <div className="input-box">
-        <input type="text" placeholder="Enter your e-mail" />
-        <input type="text" placeholder="Enter your password" />
-        <input type="text" placeholder="Repeat your password" />
-      </div>
 
-      <div className="buttons-box">
-        <button className="button-back" onClick={handleBackClick}>
-          Back
-        </button>
-        <button className="button-login">Sign up</button>
-      </div>
-      <p className="forgot-link">Forgot password?</p>
-    </form>
-  );
+  return <AuthForm isSignUp={true} onSubmit={handleSubmit} />;
 };
 
-export default SignUp;
+export default SignUpForm;

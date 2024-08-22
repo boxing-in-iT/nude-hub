@@ -1,0 +1,137 @@
+#account {
+  padding-top: calc(1 * var(--index));
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: calc(2 * var(--index));
+}
+
+.account-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-info-title {
+  /* margin: 0; */
+  /* padding: 0; */
+  margin-bottom: calc(2 * var(--index));
+  font-size: 33.4px;
+}
+
+.account-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(1.5 * var(--index));
+}
+
+.account-info-box p {
+  margin: 0;
+  padding: 0;
+}
+
+.account-info-data {
+  display: flex;
+  flex-direction: column;
+  gap: calc(0.5 * var(--index));
+}
+
+.info-photo {
+  width: calc(4 * var(--index));
+}
+
+.account-info-data-item {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.account-header-button {
+  border: none;
+  background-color: transparent;
+  font-size: 16.5px;
+  font-weight: 500;
+  font-weight: 700;
+  color: #de7084;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: calc(0.5 * var(--index));
+}
+
+.account-header-button img {
+  width: calc(1.2 * var(--index));
+}
+
+.table-container {
+  /* max-width: 100%; */
+  margin: 0 auto;
+}
+
+.table-container {
+  /* width: 100%; Убедитесь, что контейнер занимает всю ширину */
+  margin: 0 auto;
+}
+
+table {
+  width: 100%; /* Таблица занимает всю ширину контейнера */
+  border-collapse: collapse;
+  border: 1px solid #f0558c;
+  border-top: 7px solid #f0558c;
+}
+
+th,
+td {
+  padding: 50px 15px;
+  text-align: center;
+  color: white;
+  border: 0.01px solid #f0558c;
+}
+
+thead th {
+  padding: 5px 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.th-id {
+  width: calc(13 * var(--index));
+}
+
+.th-date {
+  width: calc(7 * var(--index));
+}
+
+.th-status {
+  width: calc(10 * var(--index));
+}
+
+.th-image {
+  width: calc(5 * var(--index));
+}
+
+.th-image img {
+  width: calc(0.7 * var(--index));
+}
+
+thead th:last-child {
+  text-align: center;
+}
+
+tbody tr:last-child {
+  border-bottom: 1px solid #f0558c;
+}
+
+td:last-child {
+  font-weight: bold;
+}

@@ -69,6 +69,10 @@ form input {
   gap: 25px;
 }
 
+.input-box input {
+  color: white;
+}
+
 .buttons-box {
   width: 100%;
   display: flex;
@@ -86,6 +90,17 @@ form input {
   font-size: 16px;
   font-weight: 700;
   color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(0.3 * var(--index));
+}
+
+.button-back:hover {
+  cursor: pointer;
+  background-color: #de7084;
+  transition: 0.3s;
 }
 
 .button-login {
@@ -97,6 +112,12 @@ form input {
   font-size: 16px;
   font-weight: 700;
   color: white;
+}
+
+.button-login:hover {
+  cursor: pointer;
+  background: linear-gradient(138.47deg, #bc5567 36.89%, #de7184 94.18%);
+  transition: 0.3s;
 }
 
 .forgot-link {
