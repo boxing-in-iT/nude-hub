@@ -9,6 +9,7 @@
 body {
   margin: 0;
   height: 100vh;
+
   background: linear-gradient(0deg, #ffffff, #ffffff),
     linear-gradient(180deg, #1b0c0f 0%, #0c191c 100%);
 
@@ -226,3 +227,9 @@ section {
     font-weight: 900;
   }
 }
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */

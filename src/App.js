@@ -11,17 +11,21 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./pages/main";
 import Login from "./pages/login";
 import AccountPage from "./pages/account";
+import ImageAnnotator from "./components/ImageAnnotator";
+import ImageDownloader from "./pages/image-downloader";
 
 function App() {
   return (
     <BrowserRouter>
       <>
         <Header />
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/account" element={<AccountPage />} />
-        </Routes>
+          
+        </Routes> */}
+        <ImageDownloader />
         <Footer />
       </>
     </BrowserRouter>
