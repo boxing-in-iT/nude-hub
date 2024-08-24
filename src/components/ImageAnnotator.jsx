@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Stage, Layer, Image, Line } from "react-konva";
 import { useDropzone } from "react-dropzone";
 import pen from "../assets/image/pen.svg";
@@ -11,8 +11,9 @@ import width from "../assets/image/width.svg";
 const ImageAnnotator = () => {
   const [image, setImage] = useState(null);
   const [lines, setLines] = useState([]);
-  const [isDrawing, setIsDrawing] = useState(false);
-  const [strokeWidth, setStrokeWidth] = useState(40);
+  // const [isDrawing, setIsDrawing] = useState(false);
+  const isDrawing = useRef(false);
+  const [strokeWidth, setStrokeWidth] = useState(10);
   const [tool, setTool] = useState("pen");
   const [eraserRadius, setEraserRadius] = useState(40);
 
@@ -20,6 +21,12 @@ const ImageAnnotator = () => {
   const [imageHeight, setImageHeight] = useState(null);
 
   const imageRef = useRef();
+
+  const [isPenSliderShow, setIsPenSliderShow] = useState(false);
+  const [isEraserSliderShow, setIsEraserSliderShow] = useState(false);
+
+  const penButtonRef = useRef();
+  const eraserButtonRef = useRef();
 
   const onDrop = (acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -30,68 +37,97 @@ const ImageAnnotator = () => {
       img.src = reader.result;
       img.onload = () => {
         setImage(img);
-        setImageWidth(img.width); // Устанавливаем ширину изображения
-        setImageHeight(img.height); // Устанавливаем высоту изображения
+        setImageWidth(img.width);
+        setImageHeight(img.height);
       };
     };
     reader.readAsDataURL(file);
   };
 
-  const handleMouseDown = (e) => {
-    setIsDrawing(true);
-    const { x, y } = e.target.getStage().getPointerPosition();
-    setLines([...lines, { points: [x, y], strokeWidth, tool }]);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDrawing) return;
-
-    const stage = e.target.getStage();
-    const point = stage.getPointerPosition();
-    const lastLineIndex = lines.length - 1;
-
-    if (lastLineIndex < 0) return;
-
-    const lastLine = lines[lastLineIndex];
-    const updatedLine = {
-      ...lastLine,
-      points: lastLine.points.concat([point.x, point.y]),
-    };
-
-    if (tool === "eraser") {
-      const updatedLines = lines
-        .map((line) => ({
-          ...line,
-          points: eraseLine(line, point, eraserRadius),
-        }))
-        .filter((line) => line.points.length > 0);
-
-      setLines(updatedLines);
-    } else {
-      setLines(lines.slice(0, -1).concat(updatedLine));
-    }
-  };
-
-  const handleMouseUp = () => {
-    setIsDrawing(false);
-  };
-
-  const eraseLine = (line, point, radius) => {
-    const newPoints = [];
-    for (let i = 0; i < line.points.length; i += 2) {
-      const px = line.points[i];
-      const py = line.points[i + 1];
-      const dist = Math.hypot(px - point.x, py - point.y);
-      if (dist > radius) {
-        newPoints.push(px, py);
-      }
-    }
-    return newPoints;
-  };
-
   const undoLastLine = () => {
     setLines(lines.slice(0, -1));
   };
+
+  // const handleMouseDown = (e) => {
+  //   isDrawing.current = true;
+  //   const pos = e.target.getStage().getPointerPosition();
+  //   setLines([...lines, { tool, points: [pos.x, pos.y], strokeWidth }]);
+  // };
+
+  const handleMouseDown = (e) => {
+    isDrawing.current = true;
+    const pos = e.target.getStage().getPointerPosition();
+    setLines([
+      ...lines,
+      {
+        tool,
+        points: [pos.x, pos.y],
+        strokeWidth: tool === "eraser" ? eraserRadius : strokeWidth,
+      },
+    ]);
+  };
+
+  const handleMouseMove = (e) => {
+    // no drawing - skipping
+    if (!isDrawing.current) {
+      return;
+    }
+    const stage = e.target.getStage();
+    const point = stage.getPointerPosition();
+    let lastLine = lines[lines.length - 1];
+    // add point
+    lastLine.points = lastLine.points.concat([point.x, point.y]);
+
+    // replace last
+    lines.splice(lines.length - 1, 1, lastLine);
+    setLines(lines.concat());
+  };
+
+  const handleMouseUp = () => {
+    isDrawing.current = false;
+  };
+
+  const handlePenClick = () => {
+    setIsPenSliderShow(!isPenSliderShow);
+    setTool("pen");
+    setIsEraserSliderShow(false);
+  };
+
+  const handleEraserClick = () => {
+    setIsEraserSliderShow(!isEraserSliderShow);
+    setTool("eraser");
+    setIsPenSliderShow(false);
+  };
+
+  const handlePenSliderChange = (value) => {
+    setStrokeWidth(value);
+  };
+
+  const handleEraserSliderChange = (value) => {
+    setEraserRadius(value);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        penButtonRef.current &&
+        !penButtonRef.current.contains(event.target)
+      ) {
+        setIsPenSliderShow(false);
+      }
+      if (
+        eraserButtonRef.current &&
+        !eraserButtonRef.current.contains(event.target)
+      ) {
+        setIsEraserSliderShow(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [penButtonRef, eraserButtonRef]);
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
@@ -99,7 +135,7 @@ const ImageAnnotator = () => {
     <div className="image-annotator-container">
       {imageWidth && imageHeight && (
         <div className="screen-resolution">
-          <img src={width} />
+          <img src={width} alt="Resolution" />
           <p className="screen-resolution-text">
             {imageWidth}x{imageHeight}
           </p>
@@ -109,9 +145,9 @@ const ImageAnnotator = () => {
       {!image && (
         <div {...getRootProps()} className="drag-drop-container">
           <input {...getInputProps()} />
-          <img src={tits} />
+          <img src={tits} alt="Drop Here" />
           DROP HERE
-          <img src={downloadIco} />
+          <img src={downloadIco} alt="Download Icon" />
         </div>
       )}
 
@@ -126,15 +162,15 @@ const ImageAnnotator = () => {
           >
             <Layer>
               <Image image={image} ref={imageRef} />
+            </Layer>
+            <Layer>
               {lines.map((line, i) => (
                 <Line
                   key={i}
                   points={line.points}
-                  stroke={
-                    line.tool === "pen"
-                      ? "rgba(255, 105, 180, 0.5)"
-                      : "rgba(0,0,0,0)"
-                  }
+                  stroke={`rgba(255, 105, 180, ${
+                    line.tool === "eraser" ? 1 : 0.3
+                  })`} // Полупрозрачная линия
                   strokeWidth={line.strokeWidth}
                   tension={0.5}
                   lineCap="round"
@@ -150,18 +186,52 @@ const ImageAnnotator = () => {
       )}
 
       <div className="image-downloads-buttons">
-        <button onClick={() => setTool("pen")} className="image-button">
-          <img src={pen} />
-        </button>
-        <button onClick={() => setTool("eraser")} className="image-button">
-          <img src={erazer} />
-        </button>
+        <div
+          ref={penButtonRef}
+          onClick={() => handlePenClick()}
+          className={`image-button ${
+            isPenSliderShow ? "image-button-active" : ""
+          }`}
+        >
+          {isPenSliderShow && (
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value={strokeWidth}
+              onChange={(e) => handlePenSliderChange(parseInt(e.target.value))}
+              className="vertical-slider"
+              orient="vertical"
+            />
+          )}
+          <img src={pen} alt="Pen" />
+        </div>
+        <div
+          ref={eraserButtonRef}
+          onClick={() => handleEraserClick()}
+          className={`image-button ${
+            isEraserSliderShow ? "image-button-active" : ""
+          }`}
+        >
+          {isEraserSliderShow && (
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value={eraserRadius}
+              onChange={(e) => handlePenSliderChange(parseInt(e.target.value))}
+              className="vertical-slider"
+              orient="vertical"
+            />
+          )}
+          <img src={erazer} alt="Eraser" />
+        </div>
         <button
           onClick={undoLastLine}
           disabled={lines.length === 0}
           className="image-button"
         >
-          <img src={undo} />
+          <img src={undo} alt="Undo" />
         </button>
       </div>
     </div>

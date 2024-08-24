@@ -7,14 +7,34 @@
 }
 
 .image-sidebar {
-  /* width: 190px; */
   width: calc(20 * var(--index));
-  height: calc(24.5 * var(--index));
-  /* height: 861px; */
+  /* max-height: calc(24.5 * var(--index)); */
   border: 2px solid #de7084;
   border-radius: 22px;
-  padding: 20px 10px;
-  overflow-y: scroll;
+  overflow-y: hidden; /* Prevent scrolling on the entire sidebar */
+  direction: rtl;
+}
+
+.sidebar-account-info {
+  width: 100%;
+  border: 1px solid #de7084;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-account-icon {
+  width: calc(1.5 * var(--index));
+}
+
+.sidebar-account-balance {
+  font-size: 33px;
+  margin: 20px 0px;
+  padding: 0;
 }
 
 .sidebar-images-photo {
@@ -29,7 +49,7 @@
 .sidebar-images-add-button {
   background-color: #000000;
   width: calc(5 * var(--index));
-  height: calc(5 * var(--index));
+  height: calc(10 * var(--index));
   border: 1px solid #4a4a4a;
   border-radius: 10px;
 
@@ -45,10 +65,29 @@
 }
 
 .sidebar-images {
+  margin-top: calc(1 * var(--index));
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: calc(1 * var(--index));
+
+  max-height: calc(20 * var(--index)); /* Limit the height */
+  overflow-y: auto; /* Enable scrolling only for the images */
+  direction: rtl;
+}
+
+.sidebar-images::-webkit-scrollbar {
+  margin-left: 10px;
+  width: 8px; /* Adjust scrollbar width if needed */
+}
+
+.sidebar-images::-webkit-scrollbar-track {
+  background-color: transparent; /* Optional: Background color of the scrollbar track */
+}
+
+.sidebar-images::-webkit-scrollbar-thumb {
+  background-color: #de7084; /* Set the scrollbar color */
+  border-radius: 4px; /* Optional: Rounded corners for the scrollbar thumb */
 }
 
 .image-conent {
@@ -61,10 +100,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: calc(35 * var(--index));
-  height: calc(25 * var(--index));
-  background-color: #272727;
-  border-radius: 20px;
+  background-color: #272727; /* Base background color */
+  background-image: radial-gradient(circle, #444444 1px, transparent 1px);
+  background-size: 20px 20px; /* Adjust the size of the dots */
+  border-radius: 20px; /* Optional: round corners like in your design */
+  width: calc(35 * var(--index)); /* Adjust based on your container size */
+  height: calc(25 * var(--index)); /* Adjust based on your container size */
   padding-bottom: 20px; /* Add padding if needed */
   position: relative;
 }
@@ -92,6 +133,7 @@
   width: 373px;
   height: 300px;
   border: 1px dashed #7c7c7c;
+  background-color: #242424;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -115,6 +157,18 @@
   border: none;
   background-color: #190d10;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-button-active {
+  position: relative;
+  height: 200px;
+  border: 1px solid #de7084;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 20px;
 }
 
 .image-downloads-buttons {
@@ -122,4 +176,19 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  position: absolute;
+  bottom: calc(1 * var(--index));
+}
+
+.vertical-slider {
+  position: absolute;
+  top: 0;
+  right: 40%;
+  width: 150px; /* Adjust based on preference */
+  height: 10px; /* Adjust the initial thickness */
+  background: #de7084;
+  transform: rotate(-90deg); /* Rotate to make it vertical */
+  transform-origin: right bottom;
+  border-radius: 5px; /* Add some rounding to the edges */
+  accent-color: #de7084;
 }
