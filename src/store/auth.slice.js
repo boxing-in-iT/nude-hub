@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { alertActions } from "./alert.slice";
-// import { history, fetchWrapper } from "_helpers";
 import history from "../helpers/history";
 import fetchWrapper from "../helpers/fetch-wrapper";
 // create slice
@@ -50,24 +49,28 @@ function createExtraActions() {
       async function ({ email, password }, { dispatch }) {
         dispatch(alertActions.clear());
         try {
-          const user = await fetchWrapper.post(`${baseUrl}/authenticate`, {
-            email,
-            password,
-          });
+          const response = await fetchWrapper.post(
+            `http://3.72.65.135:8080/api/users/sign-in`,
+            { email, password }
+          );
 
-          // set auth user in redux state
-          dispatch(authActions.setAuth(user));
+          // если ответ успешный, запишите пользователя в состояние Redux
+          dispatch(authActions.setAuth(response.data));
 
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem("auth", JSON.stringify(user));
+          // сохраните детали пользователя и токен JWT в localStorage
+          localStorage.setItem("auth", JSON.stringify(response.data));
 
-          // get return url from location state or default to home page
+          // перейдите на нужную страницу после успешного входа
           const { from } = history.location.state || {
             from: { pathname: "/" },
           };
           history.navigate(from);
         } catch (error) {
-          dispatch(alertActions.error(error));
+          // извлеките сообщение из ошибки и передайте его в alert
+          const errorMessage =
+            error.response?.data?.message || "An unknown error occurred";
+          dispatch(alertActions.error({ message: errorMessage }));
+          throw new Error(errorMessage); // Передайте ошибку выше в компонент
         }
       }
     );

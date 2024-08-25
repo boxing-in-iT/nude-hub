@@ -5,9 +5,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import "./index.css";
 import arrow from "../../../assets/loginPage/ArrowUUpLeft.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { alertActions } from "../../../store";
 
-const AuthForm = ({ isSignUp, onSubmit }) => {
+const AuthForm = ({ isSignUp, onSubmit, error }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const alert = useSelector((state) => state.alert.value);
 
   // Form validation schema
   const validationSchema = Yup.object().shape({
@@ -80,6 +84,18 @@ const AuthForm = ({ isSignUp, onSubmit }) => {
           </>
         )}
       </div>
+
+      {alert && (
+        <div className={`alert ${alert.type}`}>
+          <button
+            className="close-button"
+            onClick={() => dispatch(alertActions.clear())}
+          >
+            &times;
+          </button>
+          {alert.message}
+        </div>
+      )}
 
       <div className="buttons-box">
         <button type="button" className="button-back" onClick={handleBackClick}>
