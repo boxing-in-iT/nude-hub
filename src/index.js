@@ -3,11 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import fakeBackend from "./fake-backend";
 import { Provider } from "react-redux";
 import store from "./store";
-
-fakeBackend();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
