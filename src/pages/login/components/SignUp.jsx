@@ -1,26 +1,32 @@
 import { useNavigate } from "react-router-dom";
 import AuthForm from "./AuthForm";
-import { fakeBackend } from "../../../fake-backend";
+import { alertActions, userActions } from "../../../store";
+import { useDispatch } from "react-redux";
+import history from "../../../helpers/history";
 
 const SignUpForm = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleSubmit = async ({ email, password, confirmPassword }) => {
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
+  async function onSubmit(data) {
+    debugger;
+    dispatch(alertActions.clear());
+    try {
+      await dispatch(userActions.register(data)).unwrap();
+
+      // redirect to login page and display success alert
+      // history.navigate("/account");
+      dispatch(
+        alertActions.success({
+          message: "Registration successful",
+          showAfterRedirect: true,
+        })
+      );
+    } catch (error) {
+      dispatch(alertActions.error(error));
     }
+  }
 
-    const result = await fakeBackend.register(email, password);
-    if (result.success) {
-      // Успешная регистрация
-      navigate("/login"); // Переход на страницу входа после регистрации
-    } else {
-      alert(result.message); // Отображение сообщения об ошибке
-    }
-  };
-
-  return <AuthForm isSignUp={true} onSubmit={handleSubmit} />;
+  return <AuthForm isSignUp={true} onSubmit={onSubmit} />;
 };
 
 export default SignUpForm;

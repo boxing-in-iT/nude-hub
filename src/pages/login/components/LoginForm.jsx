@@ -1,21 +1,27 @@
 import { useNavigate } from "react-router-dom";
-import { fakeBackend } from "../../../fake-backend";
 import AuthForm from "./AuthForm";
+import { useDispatch } from "react-redux";
+import { alertActions, authActions } from "../../../store/index";
+import history from "../../../helpers/history";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = async ({ email, password }) => {
-    const result = await fakeBackend.login(email, password);
-    if (result.success) {
-      // Успешный вход
-      navigate("/dashboard"); // Переход на страницу после входа
-    } else {
-      alert(result.message); // Отображение сообщения об ошибке
+  // function onSubmit({ email, password }) {
+  //   return dispatch(authActions.login({ email, password }));
+  // }
+
+  const onSubmit = async ({ email, password }) => {
+    try {
+      debugger;
+      await dispatch(authActions.login({ email, password }));
+      navigate("/account");
+    } catch (error) {
+      dispatch(alertActions.error(error));
     }
   };
-
-  return <AuthForm isSignUp={false} onSubmit={handleSubmit} />;
+  return <AuthForm isSignUp={false} onSubmit={onSubmit} />;
 };
 
 export default LoginForm;
