@@ -14,11 +14,13 @@ const ImageAnnotator = () => {
   const isDrawing = useRef(false);
   const [strokeWidth, setStrokeWidth] = useState(10);
   const [tool, setTool] = useState("pen");
-  const [eraserRadius, setEraserRadius] = useState(40);
+
   const [size, setSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
+
+  console.log(size);
 
   const [imageWidth, setImageWidth] = useState(null);
   const [imageHeight, setImageHeight] = useState(null);
@@ -109,6 +111,7 @@ const ImageAnnotator = () => {
         window.removeEventListener("resize", checkSize);
       };
     };
+    checkSize();
   });
 
   useEffect(() => {
@@ -241,7 +244,7 @@ const ImageAnnotator = () => {
               type="range"
               min="1"
               max="100"
-              value={eraserRadius}
+              value={strokeWidth}
               onChange={(e) => handlePenSliderChange(parseInt(e.target.value))}
               className="vertical-slider"
               orient="vertical"
