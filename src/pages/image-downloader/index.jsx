@@ -18,13 +18,13 @@ const ImageDownloader = () => {
           </div>
           <div className="sidebar-images">
             <div className="sidebar-images-add-button">
-              <img src={plus} className="plus-button" />
+              <img src={plus} className="plus-button" alt="Plus" />
             </div>
-            <img src={girl} alt="Image 1" className="sidebar-images-photo" />
-            <img src={girl} alt="Image 2" className="sidebar-images-photo" />
-            <img src={girl} alt="Image 3" className="sidebar-images-photo" />
-            <img src={girl} alt="Image 3" className="sidebar-images-photo" />
-            <img src={girl} alt="Image 3" className="sidebar-images-photo" />
+            <img src={girl} alt="card 1" className="sidebar-images-photo" />
+            <img src={girl} alt="card 2" className="sidebar-images-photo" />
+            <img src={girl} alt="card 3" className="sidebar-images-photo" />
+            <img src={girl} alt="card 3" className="sidebar-images-photo" />
+            <img src={girl} alt="card 3" className="sidebar-images-photo" />
           </div>
         </div>
 

@@ -49,13 +49,13 @@ const PhotoSlider = ({ image1, image2 }) => {
       <img
         className="example-card-img"
         src={image1}
-        alt="Image 1"
+        alt="card 1"
         style={{ clipPath: `inset(0 0 ${100 - value}% 0)` }}
       />
       <img
         className="example-card-img"
         src={image2}
-        alt="Image 2"
+        alt="card 2"
         style={{ clipPath: `inset(${value}% 0 0 0)` }}
       />
       <div
@@ -65,7 +65,7 @@ const PhotoSlider = ({ image1, image2 }) => {
         onTouchStart={handleTouchStart}
       />
       <button className="create-ai-button">
-        <img src={wand} />
+        <img src={wand} alt="wand" />
         Create your AI
       </button>
     </div>

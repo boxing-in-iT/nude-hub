@@ -4,7 +4,6 @@ import girl1 from "../../../assets/welcome/girl1.png";
 import girl2 from "../../../assets/welcome/girl2.png";
 import girl3 from "../../../assets/welcome/girl3.png";
 import PhotoSlider from "../../examples/components/PhotoSlider";
-import logo from "../../../assets/main/logo.png";
 
 const WelcomeExamples = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(girl1);

@@ -16,19 +16,23 @@ const DatingApps = () => {
 
       <div className="example-dating-apps-container">
         <div className="example-dating-app">
-          <img src={match} className="example-dating-app-photo" />
+          <img src={match} className="example-dating-app-photo" alt="match" />
         </div>
         <div className="example-dating-app">
-          <img src={happn} className="example-dating-app-photo" />
+          <img src={happn} className="example-dating-app-photo" alt="happn" />
         </div>
         <div className="example-dating-app">
-          <img src={tinder} className="example-dating-app-photo" />
+          <img src={tinder} className="example-dating-app-photo" alt="tinder" />
         </div>
         <div className="example-dating-app">
-          <img src={badoo} className="example-dating-app-photo" />
+          <img src={badoo} className="example-dating-app-photo" alt="badoo" />
         </div>
         <div className="example-dating-app">
-          <img src={okcupid} className="example-dating-app-photo" />
+          <img
+            src={okcupid}
+            className="example-dating-app-photo"
+            alt="okcupid"
+          />
         </div>
       </div>
     </div>

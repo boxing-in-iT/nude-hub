@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import fullHeart from "../../assets/pricing/fullHeart.svg";
 import emptyHeart from "../../assets/pricing/emptyHeart.svg";
 import "./index.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { packagesActions } from "../../store";
 
 const Pricing = () => {

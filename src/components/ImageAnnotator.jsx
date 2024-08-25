@@ -97,10 +97,6 @@ const ImageAnnotator = () => {
     setStrokeWidth(value);
   };
 
-  const handleEraserSliderChange = (value) => {
-    setEraserRadius(value);
-  };
-
   useEffect(() => {
     const checkSize = () => {
       setSize({
@@ -114,9 +110,6 @@ const ImageAnnotator = () => {
       };
     };
   });
-
-  var stageWidth = size.width % 2 !== 0 ? size.width - 1 : size.width;
-  var stageHeight = size.height % 2 !== 0 ? size.height - 1 : size.height;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
