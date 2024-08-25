@@ -39,8 +39,6 @@ function createReducers() {
 }
 
 function createExtraActions() {
-  const baseUrl = "http://3.72.65.135:8080/api/packages";
-
   return {
     fetchPackages: fetchPackages(),
   };

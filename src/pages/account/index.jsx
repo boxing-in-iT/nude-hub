@@ -1,10 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./components/index.css";
 import AccountInfo from "./components/account-info";
 import logoutButton from "../../assets/account/logout.svg";
 import AccountTable from "./components/account-table";
-import { authActions } from "../../store";
 
 const AccountPage = () => {
   const auth = useSelector((x) => x.auth.value);

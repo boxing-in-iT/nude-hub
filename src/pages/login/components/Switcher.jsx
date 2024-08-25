@@ -4,7 +4,7 @@ import logo from "../../../assets/loginPage/logo.svg";
 const Switcher = ({ activeForm, setActiveForm }) => {
   return (
     <>
-      <img className="form-logo" src={logo} />
+      <img className="form-logo" alt="logo" src={logo} />
       <div className="form-switcher">
         <div
           className={activeForm === "login" ? "active" : ""}

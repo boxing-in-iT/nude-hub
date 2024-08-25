@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import AuthForm from "./AuthForm";
 import { useDispatch, useSelector } from "react-redux";
-import { alertActions, authActions } from "../../../store/index";
-import history from "../../../helpers/history";
+import { authActions } from "../../../store/index";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
