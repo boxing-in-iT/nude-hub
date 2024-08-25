@@ -2,12 +2,21 @@ import React, { useState, useRef, useEffect } from "react";
 import fullHeart from "../../assets/pricing/fullHeart.svg";
 import emptyHeart from "../../assets/pricing/emptyHeart.svg";
 import "./index.css";
+import { useDispatch, useSelector } from "react-redux";
+import { packagesActions } from "../../store";
 
 const Pricing = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef(null);
   const isScrollingRef = useRef(false);
   const animationFrameRef = useRef(null);
+
+  const dispatch = useDispatch();
+  // const { items, status, error } = useSelector((state) => state.packages);
+
+  useEffect(() => {
+    dispatch(packagesActions.fetchPackages());
+  }, [dispatch]);
 
   const handleScroll = () => {
     if (isScrollingRef.current) return;
