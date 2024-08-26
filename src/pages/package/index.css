@@ -1,0 +1,106 @@
+.package-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.package-card {
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  padding: 20px;
+  width: calc(30 * var(--index));
+  height: calc(25 * var(--index));
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.package-logo {
+  width: calc(3.5 * var(--index));
+  margin-bottom: 20px;
+}
+
+.package-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}
+
+.package-credits {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.package-features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.package-feature {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.package-feature img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.package-pricing {
+  margin: 20px 0;
+}
+
+.old-price {
+  font-size: 20px;
+  text-decoration: line-through;
+  color: #888;
+}
+
+.new-price {
+  font-size: 32px;
+  margin-left: 10px;
+}
+
+.package-total {
+  font-size: 15px;
+  color: #bbb;
+}
+
+.payment-options {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.payment-button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+}
+
+.change-plan {
+  font-size: 14px;
+  color: #888;
+  cursor: pointer;
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+.package-payment-icon {
+  cursor: pointer;
+  width: calc(5 * var(--index));
+}

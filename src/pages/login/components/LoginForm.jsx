@@ -3,7 +3,7 @@ import AuthForm from "./AuthForm";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/index";
 
-const LoginForm = () => {
+const LoginForm = ({ setActiveForm }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const alert = useSelector((state) => state.alert.value);
@@ -19,7 +19,12 @@ const LoginForm = () => {
 
   return (
     <>
-      <AuthForm isSignUp={false} onSubmit={onSubmit} error={alert} />
+      <AuthForm
+        isSignUp={false}
+        onSubmit={onSubmit}
+        error={alert}
+        setActiveForm={setActiveForm} // Передаем setActiveForm для переключения форм
+      />
     </>
   );
 };

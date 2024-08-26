@@ -1,25 +1,23 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux"; // Импортировать useSelector
+import { Link } from "react-router-dom";
 import logo from "../../assets/header/logo.svg";
 import boy from "../../assets/header/GenderMale.svg";
 import girl from "../../assets/header/GenderFemale.svg";
-
 import "./index.css";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   const [activeGender, setActiveGender] = useState("girl");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const auth = useSelector((state) => state.auth.value);
 
   const scrollTo = (id) => {
     let element = document.getElementById(id);
-
     element.scrollIntoView({
       behavior: "smooth",
       block: "start",
       inline: "nearest",
     });
-
-    // setClick(false);
   };
 
   return (
@@ -94,11 +92,19 @@ const Header = () => {
                 How to
               </li>
             </ul>
-            <Link to="/login">
-              <button className="header-login-button">Login</button>
-            </Link>
+            {auth ? (
+              <Link to="/account">
+                <button className="header-login-button">{auth.email}</button>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <button className="header-login-button">Login</button>
+              </Link>
+            )}
           </nav>
-          <button className="header-login-button-mobile">Login</button>
+          <button className="header-login-button-mobile">
+            {auth ? auth.email : "Login"}
+          </button>
         </div>
       </div>
       {isMenuOpen && (

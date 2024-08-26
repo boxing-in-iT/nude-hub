@@ -46,6 +46,7 @@ function createExtraActions() {
       `/login`,
       async function ({ email, password }, { dispatch }) {
         dispatch(alertActions.clear());
+        debugger;
         try {
           const response = await fetchWrapper.post(
             `http://3.72.65.135:8080/api/users/sign-in`,

@@ -8,12 +8,11 @@ import arrow from "../../../assets/loginPage/ArrowUUpLeft.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { alertActions } from "../../../store";
 
-const AuthForm = ({ isSignUp, onSubmit, error }) => {
+const AuthForm = ({ isSignUp, onSubmit, error, setActiveForm }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const alert = useSelector((state) => state.alert.value);
 
-  // Form validation schema
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
@@ -26,7 +25,6 @@ const AuthForm = ({ isSignUp, onSubmit, error }) => {
       : Yup.string().notRequired(),
   });
 
-  // React Hook Form setup
   const {
     register,
     handleSubmit,
@@ -35,14 +33,12 @@ const AuthForm = ({ isSignUp, onSubmit, error }) => {
     resolver: yupResolver(validationSchema),
   });
 
-  // Back navigation handler
   const handleBackClick = () => {
-    navigate("/"); // Navigate back to home or previous page
+    navigate("/");
   };
 
-  // Form submission handler
   const onSubmitHandler = async (data) => {
-    await onSubmit(data); // Call parent onSubmit with form data
+    await onSubmit(data);
   };
 
   return (
@@ -62,17 +58,17 @@ const AuthForm = ({ isSignUp, onSubmit, error }) => {
           <p className="error-message">{errors.email.message}</p>
         )}
 
-        <input
-          type="password"
-          placeholder="Enter your password"
-          {...register("password")}
-        />
-        {errors.password && (
-          <p className="error-message">{errors.password.message}</p>
-        )}
-
         {isSignUp && (
           <>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              {...register("password")}
+            />
+            {errors.password && (
+              <p className="error-message">{errors.password.message}</p>
+            )}
+
             <input
               type="password"
               placeholder="Repeat your password"
@@ -82,6 +78,17 @@ const AuthForm = ({ isSignUp, onSubmit, error }) => {
               <p className="error-message">{errors.confirmPassword.message}</p>
             )}
           </>
+        )}
+
+        {!isSignUp && (
+          <input
+            type="password"
+            placeholder="Enter your password"
+            {...register("password")}
+          />
+        )}
+        {!isSignUp && errors.password && (
+          <p className="error-message">{errors.password.message}</p>
         )}
       </div>
 
@@ -106,7 +113,14 @@ const AuthForm = ({ isSignUp, onSubmit, error }) => {
           {isSubmitting ? "Loading..." : isSignUp ? "Sign up" : "Login"}
         </button>
       </div>
-      {!isSignUp && <p className="forgot-link">Forgot password?</p>}
+      {!isSignUp && (
+        <p
+          className="forgot-link"
+          onClick={() => setActiveForm("forgotPassword")}
+        >
+          Forgot password?
+        </p>
+      )}
     </form>
   );
 };

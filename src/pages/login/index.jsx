@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Switcher from "./components/Switcher";
 import LoginForm from "./components/LoginForm";
 import SignUp from "./components/SignUp";
+import ForgotPasswordForm from "./components/ForgotPasswordForm"; // Новая форма
 
 const Login = () => {
   const [activeForm, setActiveForm] = useState("login");
@@ -9,7 +10,10 @@ const Login = () => {
   return (
     <section>
       <Switcher activeForm={activeForm} setActiveForm={setActiveForm} />
-      {activeForm === "login" ? <LoginForm /> : <SignUp />}
+      {activeForm === "login" && <LoginForm setActiveForm={setActiveForm} />}
+      {activeForm === "signup" && <SignUp />}
+      {activeForm === "forgotPassword" && <ForgotPasswordForm />}{" "}
+      {/* Новая форма */}
     </section>
   );
 };
