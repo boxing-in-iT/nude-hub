@@ -1,17 +1,20 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import match from "../../assets/examples/match.svg";
 import happn from "../../assets/datingApps/happn.svg";
 import tinder from "../../assets/datingApps/tinder.svg";
 import badoo from "../../assets/datingApps/badoo.svg";
 import okcupid from "../../assets/datingApps/okcupid.svg";
-
 import "./index.css";
 
 const DatingApps = () => {
+  const { t } = useTranslation(); // Добавлен useTranslation хук
+
   return (
     <div className="dating-apps-section">
       <h2 className="datings-apps-subtitle">
-        WORKS FOR <span className="red">ALL DATING</span> APPS
+        {t("works_for")} <span className="red">{t("all_dating")}</span>{" "}
+        {t("apps")}
       </h2>
 
       <div className="example-dating-apps-container">

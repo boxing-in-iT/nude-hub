@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import fetchWrapper from "../helpers/fetch-wrapper";
 import { alertActions } from "./alert.slice";
+import toast from "react-hot-toast";
 
 // Create slice
 const name = "packages";
@@ -73,14 +74,19 @@ function createExtraActions() {
   function createPaymentSession() {
     return createAsyncThunk(
       `${name}/createPaymentSession`,
-      async function (payload, { dispatch }) {
+      async (payload, { dispatch }) => {
         const { userId, productId } = payload;
         try {
           const response = await fetchWrapper.post(
-            "http://3.72.65.135:8080/api/payment/create-session",
+            "http://3.72.65.135:8080/api/packages/buy",
             { userId, productId }
           );
 
+          console.log("Response:", response);
+
+          localStorage.setItem("sessionUrl", response.sessionUrl);
+
+          // Обновляем состояние с помощью dispatch
           dispatch(
             packagesActions.setPaymentStatus({
               status: "succeeded",
@@ -88,29 +94,20 @@ function createExtraActions() {
             })
           );
 
-          // Уведомление об успешном создании платежной сессии
-          dispatch(
-            alertActions.success({
-              message: "Платежная сессия успешно создана!",
-            })
-          );
+          // Редирект на sessionUrl
+          window.location.href = response.sessionUrl;
 
-          // Редирект через 2 секунды после уведомления
-          setTimeout(() => {
-            window.location.href = response.sessionUrl;
-          }, 2000);
+          return response;
         } catch (error) {
-          const errorMessage =
-            error.response?.data?.message || "Произошла неизвестная ошибка";
+          console.log("Error:", error);
 
-          // Уведомление об ошибке через alertActions.error
+          const errorMessage = error.response || "Произошла неизвестная ошибка";
+
+          dispatch(packagesActions.setPaymentStatus({ status: "failed" }));
           dispatch(alertActions.error({ message: errorMessage }));
+          toast.error(errorMessage);
 
-          dispatch(
-            packagesActions.setPaymentStatus({
-              status: "failed",
-            })
-          );
+          throw error;
         }
       }
     );

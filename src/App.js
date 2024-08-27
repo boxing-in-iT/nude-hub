@@ -7,9 +7,7 @@ import Login from "./pages/login";
 import AccountPage from "./pages/account";
 import ImageDownloader from "./pages/image-downloader";
 import PrivateRoute from "./components/PrivateRoute";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { packagesActions } from "./store";
+import toast, { Toaster } from "react-hot-toast";
 import Packages from "./pages/package";
 
 function App() {
@@ -17,6 +15,8 @@ function App() {
     <BrowserRouter>
       <>
         <Header />
+        <Toaster />
+
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />

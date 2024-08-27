@@ -38,6 +38,7 @@ function createReducers() {
   }
 
   function error(state, action) {
+    debugger;
     state.value = {
       type: "alert-danger",
       message: action.payload?.message || action.payload,

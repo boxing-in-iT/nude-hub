@@ -6,6 +6,7 @@ import fullHeart from "../../assets/pricing/fullHeart.svg";
 import emptyHeart from "../../assets/pricing/emptyHeart.svg";
 import { alertActions, packagesActions } from "../../store";
 import Modal from "../../components/modal/Modal";
+import toast from "react-hot-toast";
 
 const Packages = () => {
   const { items = [], status } = useSelector((state) => state.package);

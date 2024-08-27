@@ -1,16 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./components/index.css";
 import AccountInfo from "./components/account-info";
 import logoutButton from "../../assets/account/logout.svg";
 import AccountTable from "./components/account-table";
+import { authActions } from "../../store";
 
 const AccountPage = () => {
   const auth = useSelector((x) => x.auth.value);
 
   const users = useSelector((x) => x.users.item);
   console.log("Auth:", auth);
-  console.log("Users:", users);
+
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    await dispatch(authActions.logout());
+  };
 
   return (
     <section id="account">
@@ -19,7 +25,10 @@ const AccountPage = () => {
           {auth ? <AccountInfo user={auth} /> : <p>Loading...</p>}
         </div>
         <div className="account-header-buttons-box">
-          <button className="account-header-button">
+          <button
+            onClick={() => handleLogout()}
+            className="account-header-button"
+          >
             <img src={logoutButton} alt="logout" />
             LogOut
           </button>

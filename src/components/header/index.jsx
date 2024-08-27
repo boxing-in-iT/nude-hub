@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux"; // Импортировать useSelector
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/header/logo.svg";
 import boy from "../../assets/header/GenderMale.svg";
 import girl from "../../assets/header/GenderFemale.svg";
 import "./index.css";
 
 const Header = () => {
+  const { t } = useTranslation(); // Добавлен useTranslation хук
   const [activeGender, setActiveGender] = useState("girl");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const auth = useSelector((state) => state.auth.value);
@@ -43,7 +45,7 @@ const Header = () => {
               onClick={() => setActiveGender("boy")}
             >
               <img src={boy} alt="boys" />
-              <p>boys</p>
+              <p>{t("boys")}</p>
             </div>
             <div
               className={`header-box-gender ${
@@ -52,7 +54,7 @@ const Header = () => {
               onClick={() => setActiveGender("girl")}
             >
               <img src={girl} alt="girls" />
-              <p>girls</p>
+              <p>{t("girls")}</p>
             </div>
           </div>
         </div>
@@ -71,25 +73,25 @@ const Header = () => {
                 onClick={() => scrollTo("welcome")}
                 className="header-box-menu-item"
               >
-                Home
+                {t("home")}
               </li>
               <li
                 onClick={() => scrollTo("examples-section")}
                 className="header-box-menu-item"
               >
-                Examples
+                {t("examples")}
               </li>
               <li
                 onClick={() => scrollTo("pricing")}
                 className="header-box-menu-item"
               >
-                Pricing
+                {t("pricing")}
               </li>
               <li
                 onClick={() => scrollTo("faq")}
                 className="header-box-menu-item"
               >
-                How to
+                {t("how_to")}
               </li>
             </ul>
             {auth ? (
@@ -98,12 +100,12 @@ const Header = () => {
               </Link>
             ) : (
               <Link to="/login">
-                <button className="header-login-button">Login</button>
+                <button className="header-login-button">{t("login")}</button>
               </Link>
             )}
           </nav>
           <button className="header-login-button-mobile">
-            {auth ? auth.email : "Login"}
+            {auth ? auth.email : t("login")}
           </button>
         </div>
       </div>

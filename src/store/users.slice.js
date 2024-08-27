@@ -39,9 +39,11 @@ function createExtraActions() {
   };
 
   function register() {
+    debugger;
     return createAsyncThunk(
       `${name}/register`,
-      async (user) => await fetchWrapper.post(`${baseUrl}/register`, user)
+      async (user) =>
+        await fetchWrapper.post(`http://3.72.65.135:8080/api/users`, user)
     );
   }
 

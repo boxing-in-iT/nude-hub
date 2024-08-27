@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import AuthForm from "./AuthForm";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/index";
+import toast from "react-hot-toast";
 
 const LoginForm = ({ setActiveForm }) => {
   const dispatch = useDispatch();
@@ -9,12 +10,11 @@ const LoginForm = ({ setActiveForm }) => {
   const alert = useSelector((state) => state.alert.value);
 
   const onSubmit = async ({ email, password }) => {
+    debugger;
     try {
       await dispatch(authActions.login({ email, password }));
       navigate("/account");
-    } catch (error) {
-      // Ошибка уже обработана в authActions.login и сохранена в состоянии alert
-    }
+    } catch (error) {}
   };
 
   return (

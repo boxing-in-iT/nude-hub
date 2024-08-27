@@ -2,8 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 
 const ForgotPasswordForm = () => {
+  const { t } = useTranslation();
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
   });
@@ -23,7 +25,7 @@ const ForgotPasswordForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Forgot Password</h2>
+      <h2>{t("forget_password")}</h2>
       <div className="input-box">
         <input
           type="text"

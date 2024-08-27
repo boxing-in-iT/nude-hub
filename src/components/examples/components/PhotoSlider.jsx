@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
 import wand from "../../../assets/welcome/MagicWand.svg";
+import { useTranslation } from "react-i18next";
 
 const PhotoSlider = ({ image1, image2 }) => {
   const [value, setValue] = useState(50);
   const cardRef = useRef(null);
+  const { t } = useTranslation();
 
   const handleMouseMove = (e) => {
     if (cardRef.current) {
@@ -66,7 +68,8 @@ const PhotoSlider = ({ image1, image2 }) => {
       />
       <button className="create-ai-button">
         <img src={wand} alt="wand" />
-        Create your AI
+        {/* Create your AI */}
+        {t("create_ai_button")}
       </button>
     </div>
   );

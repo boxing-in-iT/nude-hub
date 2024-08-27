@@ -1,6 +1,7 @@
 import AuthForm from "./AuthForm";
 import { alertActions, userActions } from "../../../store";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const SignUpForm = () => {
       );
     } catch (error) {
       dispatch(alertActions.error(error));
+      toast.error(error.message);
     }
   }
 
