@@ -186,7 +186,7 @@
 }
 
 .mobile {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 64em) {
@@ -194,7 +194,7 @@
     width: 100%;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: calc(5 * var(--index));
+    /* padding-top: calc(5 * var(--index)); */
   }
 
   .logo-box {
@@ -217,5 +217,66 @@
   }
 
   .rabbit-hole {
+    top: calc(14 * var(--index));
+    left: calc(0.3 * var(--index));
+    width: calc(7 * var(--index));
+  }
+
+  .star-1 {
+    top: calc(10 * var(--index));
+    right: calc(5 * var(--index));
+    width: calc(1 * var(--index));
+  }
+
+  .star-2 {
+    top: calc(3 * var(--index));
+    right: calc(8 * var(--index));
+    width: calc(1 * var(--index));
+  }
+
+  .star-3 {
+    top: calc(5 * var(--index));
+    right: calc(15 * var(--index));
+    width: calc(1 * var(--index));
+  }
+
+  .star-4 {
+    top: calc(5 * var(--index));
+    left: calc(4 * var(--index));
+    width: calc(1 * var(--index));
+  }
+
+  .star-8 {
+    top: calc(10 * var(--index));
+    left: calc(3 * var(--index));
+    width: calc(1 * var(--index));
+  }
+
+  .star-5 {
+    top: calc(5 * var(--index));
+    right: calc(2 * var(--index));
+    width: calc(1 * var(--index));
+  }
+
+  .star-6 {
+    top: calc(1 * var(--index));
+    right: calc(10 * var(--index));
+    width: calc(1 * var(--index));
+  }
+
+  .star-7 {
+    display: none;
+  }
+
+  .star-9 {
+    top: calc(3 * var(--index));
+    left: calc(8 * var(--index));
+    width: calc(1 * var(--index));
+  }
+
+  .star-10 {
+    left: calc(6 * var(--index));
+    width: calc(1 * var(--index));
+    top: calc(12 * var(--index));
   }
 }

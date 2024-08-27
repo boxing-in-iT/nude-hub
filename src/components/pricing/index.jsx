@@ -86,7 +86,7 @@ const Pricing = () => {
             </div>
           ))}
         </div>
-        <div className="dots-container">
+        <div className="dots-container mobile">
           {items.map((_, index) => (
             <div
               key={index}
