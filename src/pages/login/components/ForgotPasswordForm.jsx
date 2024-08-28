@@ -16,7 +16,7 @@ const ForgotPasswordForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting },
   } = useForm({
     resolver: yupResolver(validationSchema),
   });

@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import AuthForm from "./AuthForm";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/index";
-import toast from "react-hot-toast";
 
 const LoginForm = ({ setActiveForm }) => {
   const dispatch = useDispatch();

@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import wand from "../../../assets/welcome/MagicWand.svg";
 import { useTranslation } from "react-i18next";
-import arrows from "../../../assets/examples/ArrowsVertical.svg";
 
 const PhotoSlider = ({ image1, image2 }) => {
   const [value, setValue] = useState(50);

@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { alertActions } from "./alert.slice";
 import history from "../helpers/history";
 import fetchWrapper from "../helpers/fetch-wrapper";
-import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 // create slice
 

@@ -9,7 +9,6 @@ import { authActions } from "../../store";
 const AccountPage = () => {
   const auth = useSelector((x) => x.auth.value);
 
-  const users = useSelector((x) => x.users.item);
   console.log("Auth:", auth);
 
   const dispatch = useDispatch();

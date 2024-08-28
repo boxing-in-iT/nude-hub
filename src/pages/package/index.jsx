@@ -6,14 +6,12 @@ import fullHeart from "../../assets/pricing/fullHeart.svg";
 import emptyHeart from "../../assets/pricing/emptyHeart.svg";
 import { alertActions, packagesActions } from "../../store";
 import Modal from "../../components/modal/Modal";
-import toast from "react-hot-toast";
 
 const Packages = () => {
-  const { items = [], status } = useSelector((state) => state.package);
+  const { items = [] } = useSelector((state) => state.package);
   const alert = useSelector((state) => state.alert.value); // Достаем состояние алертов
-  const auth = useSelector((x) => x.auth.value);
+
   const [testItem, setTestItem] = useState(items[0]);
-  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,13 +24,6 @@ const Packages = () => {
     }
   }, [items]);
 
-  useEffect(() => {
-    // Если появляется ошибка, показываем модальное окно
-    if (alert?.type === "alert-danger") {
-      setShowModal(true);
-    }
-  }, [alert]);
-
   const handlePurchase = () => {
     dispatch(
       packagesActions.createPaymentSession({
@@ -43,7 +34,6 @@ const Packages = () => {
   };
 
   const handleCloseModal = () => {
-    setShowModal(false);
     dispatch(alertActions.clear()); // Очистка алерта при закрытии модального окна
   };
 

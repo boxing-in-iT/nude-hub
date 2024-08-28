@@ -1,18 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
-import { alertActions } from "../../../store";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import "./index.css";
 import arrow from "../../../assets/loginPage/ArrowUUpLeft.svg";
 
 const AuthForm = ({ isSignUp, onSubmit, error, setActiveForm }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const alert = useSelector((state) => state.alert.value);
   const { t } = useTranslation();
 
   const validationSchema = Yup.object().shape({
@@ -96,18 +92,6 @@ const AuthForm = ({ isSignUp, onSubmit, error, setActiveForm }) => {
           <p className="error-message">{errors.password.message}</p>
         )}
       </div>
-
-      {/* {alert && (
-        <div className={`alert ${alert.type}`}>
-          <button
-            className="close-button"
-            onClick={() => dispatch(alertActions.clear())}
-          >
-            &times;
-          </button>
-          {alert.message}
-        </div>
-      )} */}
 
       <div className="buttons-box">
         <button type="button" className="button-back" onClick={handleBackClick}>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPackages, packagesActions } from "../../store";
+import { packagesActions } from "../../store";
 import { useNavigate } from "react-router-dom";
 import fullHeart from "../../assets/pricing/fullHeart.svg";
 import emptyHeart from "../../assets/pricing/emptyHeart.svg";
@@ -11,7 +11,6 @@ const Pricing = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef(null);
   const isScrollingRef = useRef(false);
-  const animationFrameRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
