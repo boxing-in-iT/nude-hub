@@ -41,9 +41,9 @@ const Pricing = () => {
   return (
     <section className="pricing-section" id="pricing">
       <div className="pricing-container">
-        {/* <h1 className="pricing-title">
+        <h1 className="pricing-title">
           Pricing <span style={{ color: "#DE7084" }}>&</span> plans
-        </h1> */}
+        </h1>
         <h1 className="pricing-title">
           <Trans
             i18nKey="pricing_plans"
