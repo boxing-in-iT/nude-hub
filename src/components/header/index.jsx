@@ -75,12 +75,12 @@ const Header = () => {
               >
                 {t("home")}
               </li>
-              <li
+              {/* <li
                 onClick={() => scrollTo("examples-section")}
                 className="header-box-menu-item"
               >
                 {t("examples")}
-              </li>
+              </li> */}
               <li
                 onClick={() => scrollTo("pricing")}
                 className="header-box-menu-item"

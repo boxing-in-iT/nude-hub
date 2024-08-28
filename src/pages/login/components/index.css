@@ -129,3 +129,52 @@ form input {
   text-decoration: underline;
   margin-top: 60px;
 }
+
+.forget-password-title {
+  font-size: 20px;
+  font-weight: 700;
+  /* margin: 0; */
+}
+
+.forget-password-subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  color: #ff90a5;
+  margin: 0;
+  line-height: 17.86px;
+}
+
+.forget-password-instructions {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 15.31px;
+  color: #b4b4b4;
+}
+
+@media (max-width: 64em) {
+  form input {
+    width: calc(25 * var(--index));
+  }
+
+  .forget-password-title {
+    font-size: 20px;
+    font-weight: 700;
+    /* margin: 0; */
+    margin-top: calc(4 * var(--index));
+  }
+
+  .forget-password-subtitle {
+    font-size: 14px;
+    font-weight: 300;
+    color: #ff90a5;
+    margin: 0;
+    line-height: 17.86px;
+  }
+
+  .forget-password-instructions {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 15.31px;
+    color: #b4b4b4;
+  }
+}

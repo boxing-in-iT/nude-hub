@@ -7,9 +7,6 @@ const Main = () => {
   return (
     <>
       <WelcomePage />
-      {/* <WelcomePage /> */}
-      {/* <Examples /> */}
-      {/* <DatingApps /> */}
       <Pricing />
       <Faq />
     </>

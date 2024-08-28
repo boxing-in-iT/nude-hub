@@ -8,7 +8,6 @@ import { alertActions } from "../../../store";
 import { useTranslation, Trans } from "react-i18next";
 import "./index.css";
 import arrow from "../../../assets/loginPage/ArrowUUpLeft.svg";
-import toast from "react-hot-toast";
 
 const AuthForm = ({ isSignUp, onSubmit, error, setActiveForm }) => {
   const navigate = useNavigate();

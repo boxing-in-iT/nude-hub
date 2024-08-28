@@ -186,7 +186,7 @@
 }
 
 .mobile {
-  display: none !important;
+  display: none;
 }
 
 @media (max-width: 64em) {
@@ -195,6 +195,29 @@
     flex-direction: column;
     min-height: 100vh;
     /* padding-top: calc(5 * var(--index)); */
+  }
+
+  /* .elipse-bg {
+    width: 70%;
+  }
+
+  .elipse-bg::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    background: linear-gradient(
+      180deg,
+      rgba(220, 111, 130, 0.46) 36.55%,
+      rgba(75, 156, 174, 0.46) 65.27%
+    );
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: -1;
+  } */
+
+  .elipse-bg::before {
+    width: 90%;
   }
 
   .logo-box {

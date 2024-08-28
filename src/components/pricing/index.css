@@ -1,7 +1,7 @@
 .pricing-section {
   min-height: 70vh;
   display: flex;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .pricing-container {
