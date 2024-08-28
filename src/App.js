@@ -7,7 +7,7 @@ import Login from "./pages/login";
 import AccountPage from "./pages/account";
 import ImageDownloader from "./pages/image-downloader";
 import PrivateRoute from "./components/PrivateRoute";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import Packages from "./pages/package";
 
 function App() {
