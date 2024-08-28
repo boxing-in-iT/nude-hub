@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import logo from "../../assets/header/logo.svg";
 import boy from "../../assets/header/GenderMale.svg";
@@ -8,10 +8,11 @@ import girl from "../../assets/header/GenderFemale.svg";
 import "./index.css";
 
 const Header = () => {
-  const { t } = useTranslation(); // Добавлен useTranslation хук
+  const { t } = useTranslation();
   const [activeGender, setActiveGender] = useState("girl");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const auth = useSelector((state) => state.auth.value);
+  const navigate = useNavigate();
 
   const scrollTo = (id) => {
     let element = document.getElementById(id);
@@ -20,6 +21,17 @@ const Header = () => {
       block: "start",
       inline: "nearest",
     });
+  };
+
+  const handleLinkClick = (sectionId) => {
+    if (window.location.pathname !== "/") {
+      navigate("/", { replace: true }); // Перенаправляем на главную страницу
+      setTimeout(() => {
+        scrollTo(sectionId); // Прокручиваем к нужной секции после перехода
+      }, 100); // Задержка для того, чтобы страница успела загрузиться
+    } else {
+      scrollTo(sectionId); // Прокручиваем к нужной секции, если уже на главной
+    }
   };
 
   return (
@@ -70,25 +82,25 @@ const Header = () => {
             )}
             <ul className="header-box-menu">
               <li
-                onClick={() => scrollTo("welcome")}
+                onClick={() => handleLinkClick("welcome")}
                 className="header-box-menu-item"
               >
                 {t("home")}
               </li>
               {/* <li
-                onClick={() => scrollTo("examples-section")}
+                onClick={() => handleLinkClick("examples-section")}
                 className="header-box-menu-item"
               >
                 {t("examples")}
               </li> */}
               <li
-                onClick={() => scrollTo("pricing")}
+                onClick={() => handleLinkClick("pricing")}
                 className="header-box-menu-item"
               >
                 {t("pricing")}
               </li>
               <li
-                onClick={() => scrollTo("faq")}
+                onClick={() => handleLinkClick("faq")}
                 className="header-box-menu-item"
               >
                 {t("how_to")}

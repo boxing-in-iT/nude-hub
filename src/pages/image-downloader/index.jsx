@@ -12,7 +12,7 @@ const ImageDownloader = () => {
       <div className="image-downloader-container">
         {/* Sidebar */}
         <div className="image-sidebar">
-          <div className="sidebar-account-info">
+          <div className="sidebar-account-info desktop">
             <img src={rabbit} alt="Account " className="sidebar-account-icon" />
             <p className="sidebar-account-balance">245</p>
           </div>

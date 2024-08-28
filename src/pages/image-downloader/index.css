@@ -198,3 +198,76 @@
 .drop-n-drag-image {
   width: calc(100 * var(--index));
 }
+
+@media (max-width: 64em) {
+  .image-downloader-container {
+    flex-direction: column-reverse;
+  }
+
+  .image-sidebar {
+    display: flex; /* Ensure flexbox properties apply */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    justify-content: center;
+    height: calc(10 * var(--index));
+    width: calc(27 * var(--index));
+    min-width: 0;
+    /* flex-direction: row; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* direction: ltr; */
+  }
+
+  .sidebar-images {
+    margin-top: 0;
+    flex-direction: row-reverse;
+    overflow-x: scroll;
+    width: 100%;
+  }
+
+  .sidebar-images-photo,
+  .sidebar-images-add-button {
+    min-width: 73px;
+    min-height: 73px; /* Use fixed width and height for consistency */
+    max-width: 73px;
+    max-height: 73px;
+    object-fit: cover;
+  }
+
+  .sidebar-images::-webkit-scrollbar {
+    display: none; /* Не отображать кастомизированный скроллбар */
+  }
+
+  .image-annotator-container {
+    width: calc(30 * var(--index));
+  }
+
+  .drag-drop-container {
+    width: calc(15 * var(--index));
+  }
+
+  .drag-drop-tits {
+    width: calc(5 * var(--index));
+  }
+
+  .download-ico {
+    width: calc(2.5 * var(--index));
+  }
+
+  .image-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .image-button img {
+    width: calc(2 * var(--index));
+  }
+
+  .image-button-active {
+    height: 170px; /* Уменьшение высоты активной кнопки на мобильных */
+  }
+
+  .vertical-slider {
+    width: 120px; /* Уменьшение ширины слайдера на мобильных */
+  }
+}

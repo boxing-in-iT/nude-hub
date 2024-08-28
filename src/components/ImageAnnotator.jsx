@@ -162,9 +162,9 @@ const ImageAnnotator = () => {
       {!image && (
         <div {...getRootProps()} className="drag-drop-container">
           <input {...getInputProps()} />
-          <img src={tits} alt="Drop Here" />
+          <img src={tits} alt="Drop Here" className="drag-drop-tits" />
           DROP HERE
-          <img src={downloadIco} alt="Download Icon" />
+          <img src={downloadIco} alt="Download Icon" className="download-ico" />
         </div>
       )}
 
