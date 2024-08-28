@@ -9,6 +9,7 @@ import { Trans, useTranslation } from "react-i18next";
 
 const Pricing = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  // eslint-disable-next-line no-unused-vars
   const { t } = useTranslation();
   const containerRef = useRef(null);
   const isScrollingRef = useRef(false);
@@ -42,7 +43,7 @@ const Pricing = () => {
   return (
     <section className="pricing-section" id="pricing">
       <div className="pricing-container">
-        <h1 className="pricing-title">{t("pricing_plans")}</h1>
+        {/* <h1 className="pricing-title">{t("pricing_plans")}</h1> */}
         <h1 className="pricing-title">
           <Trans
             i18nKey="pricing_plans"
