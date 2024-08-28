@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import fullHeart from "../../assets/pricing/fullHeart.svg";
 import emptyHeart from "../../assets/pricing/emptyHeart.svg";
 import "./index.css";
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 const Pricing = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { t } = useTranslation();
   const containerRef = useRef(null);
   const isScrollingRef = useRef(false);
   const dispatch = useDispatch();
@@ -41,9 +42,7 @@ const Pricing = () => {
   return (
     <section className="pricing-section" id="pricing">
       <div className="pricing-container">
-        <h1 className="pricing-title">
-          Pricing <span style={{ color: "#DE7084" }}>&</span> plans
-        </h1>
+        <h1 className="pricing-title">{t("pricing_plans")}</h1>
         <h1 className="pricing-title">
           <Trans
             i18nKey="pricing_plans"
