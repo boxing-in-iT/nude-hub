@@ -68,7 +68,7 @@
   object-fit: cover;
 }
 
-.example-card-divider {
+/* .example-card-divider {
   position: absolute;
   left: 0;
   top: 50%;
@@ -81,7 +81,42 @@
   cursor: ns-resize;
   transform: translateY(-50%);
   touch-action: none;
-  box-shadow: 0 0 10px 2px rgba(255, 64, 129, 0.7); /* добавляем свечение */
+  box-shadow: 0 0 10px 2px rgba(255, 64, 129, 0.7); 
+} */
+
+.example-card-divider {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 5px;
+  background: white;
+  border-top: 3px solid #ff4081;
+  border-bottom: 3px solid #ff4081;
+  z-index: 1;
+  cursor: ns-resize;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider-icon {
+  position: relative;
+  background-color: #de7084;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 10px 2px rgba(255, 64, 129, 0.7);
+}
+
+.divider-icon img {
+  width: 20px;
+  height: auto;
 }
 
 .create-ai-button {
