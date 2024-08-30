@@ -5,10 +5,6 @@ import rabbit from "../../assets/account/rabbit.png";
 import plus from "../../assets/image/Plus.svg";
 
 import "./index.css";
-import CustomKonvaImage from "../../components/custom-image-konva";
-import ImageCropper from "../../components/custom-image-konva";
-import ImageCropDemo from "../../components/custom-image-konva";
-import DrawingApp from "../../components/test-brush";
 
 const ImageDownloader = () => {
   return (
