@@ -11,18 +11,6 @@ import ImageCropDemo from "../../components/custom-image-konva";
 import DrawingApp from "../../components/test-brush";
 
 const ImageDownloader = () => {
-  const [imageUrl, setImageUrl] = useState(null);
-
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImageUrl(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
   return (
     <section className="image-downloader-section">
       <div className="image-downloader-container">

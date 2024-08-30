@@ -5,6 +5,7 @@ import AccountInfo from "./components/account-info";
 import logoutButton from "../../assets/account/logout.svg";
 import AccountTable from "./components/account-table";
 import { authActions } from "../../store";
+import { Link } from "react-router-dom";
 
 const AccountPage = () => {
   const auth = useSelector((x) => x.auth.value);
@@ -35,6 +36,11 @@ const AccountPage = () => {
       </div>
       <div>
         <AccountTable />
+      </div>
+      <div>
+        <Link to={"/image"} className="button">
+          Create Image
+        </Link>
       </div>
     </section>
   );

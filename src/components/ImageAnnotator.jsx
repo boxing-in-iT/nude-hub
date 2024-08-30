@@ -15,10 +15,10 @@ const ImageAnnotator = () => {
   const [strokeWidth, setStrokeWidth] = useState(10);
   const [tool, setTool] = useState("pen");
 
-  const [size, setSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+  // const [size, setSize] = useState({
+  //   width: window.innerWidth,
+  //   height: window.innerHeight,
+  // });
 
   const [stageSize, setStageSize] = useState({
     width: 500,
@@ -155,10 +155,10 @@ const ImageAnnotator = () => {
 
   useEffect(() => {
     const checkSize = () => {
-      setSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
+      // setSize({
+      //   width: window.innerWidth,
+      //   height: window.innerHeight,
+      // });
 
       // Устанавливаем размер Stage в зависимости от ширины экрана
       if (window.innerWidth < 768) {
