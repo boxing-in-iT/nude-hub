@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import ImageAnnotator from "../../components/ImageAnnotator";
 import girl from "../../assets/welcome/girl1.png";
 import rabbit from "../../assets/account/rabbit.png";
 import plus from "../../assets/image/Plus.svg";
 
 import "./index.css";
+import CustomKonvaImage from "../../components/custom-image-konva";
+import ImageCropper from "../../components/custom-image-konva";
+import ImageCropDemo from "../../components/custom-image-konva";
+import DrawingApp from "../../components/test-brush";
 
 const ImageDownloader = () => {
+  const [imageUrl, setImageUrl] = useState(null);
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImageUrl(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   return (
-    <section>
+    <section className="image-downloader-section">
       <div className="image-downloader-container">
-        {/* Sidebar */}
         <div className="image-sidebar">
           <div className="sidebar-account-info desktop">
             <img src={rabbit} alt="Account " className="sidebar-account-icon" />
@@ -28,11 +43,13 @@ const ImageDownloader = () => {
           </div>
         </div>
 
-        {/* Content Area */}
         <div className="image-content">
           <ImageAnnotator />
         </div>
       </div>
+      {/* <ImageCropDemo /> */}
+      {/* <DrawingApp /> */}
+      {/* <ImageCropDemo /> */}
     </section>
   );
 };

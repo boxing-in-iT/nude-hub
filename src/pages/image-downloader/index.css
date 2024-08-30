@@ -149,7 +149,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1500px;
+  width: 100%; /* Убедитесь, что контейнер занимает всю ширину родителя */
+  height: 100%; /* Убедитесь, что контейнер занимает всю высоту родителя */
+  position: relative; /* Если необходимо, для позиционирования дочерних элементов */
+}
+
+.image-container img {
+  max-width: 200px;
+  object-fit: fill;
 }
 
 .image-button {
@@ -200,8 +207,15 @@
 }
 
 @media (max-width: 64em) {
+  .image-downloader-section {
+    justify-content: flex-start;
+    margin-top: calc(5 * var(--index));
+  }
+
   .image-downloader-container {
     flex-direction: column-reverse;
+    justify-content: flex-start;
+    gap: calc(5 * var(--index));
   }
 
   .image-sidebar {
@@ -240,6 +254,7 @@
 
   .image-annotator-container {
     width: calc(30 * var(--index));
+    height: calc(45 * var(--index));
   }
 
   .drag-drop-container {
@@ -269,5 +284,9 @@
 
   .vertical-slider {
     width: 120px; /* Уменьшение ширины слайдера на мобильных */
+  }
+
+  .image {
+    width: 30px !important;
   }
 }

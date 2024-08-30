@@ -20,10 +20,16 @@ const ImageAnnotator = () => {
     height: window.innerHeight,
   });
 
-  console.log(size);
+  const [stageSize, setStageSize] = useState({
+    width: 500,
+    height: 500,
+  });
 
   const [imageWidth, setImageWidth] = useState(null);
   const [imageHeight, setImageHeight] = useState(null);
+
+  const [originalImageWidth, setOriginalImageWidth] = useState(null);
+  const [originalImageHeight, setOriginalImageHeight] = useState(null);
 
   const imageRef = useRef();
   const stageRef = useRef(); // Reference for the Stage component
@@ -50,21 +56,60 @@ const ImageAnnotator = () => {
       img.src = reader.result;
       img.onload = () => {
         setImage(img);
-        setImageWidth(img.width);
-        setImageHeight(img.height);
+        setOriginalImageWidth(img.width);
+        setOriginalImageHeight(img.height);
       };
     };
     reader.readAsDataURL(file);
   };
+
+  const fitImage = (imgElement, containerWidth, containerHeight) => {
+    const imageRatio = imgElement.width / imgElement.height;
+    const containerRatio = containerWidth / containerHeight;
+
+    let newWidth, newHeight;
+
+    if (imageRatio > containerRatio) {
+      newWidth = containerWidth;
+      newHeight = containerWidth / imageRatio;
+    } else {
+      newHeight = containerHeight;
+      newWidth = containerHeight * imageRatio;
+    }
+
+    return { width: newWidth, height: newHeight };
+  };
+
+  useEffect(() => {
+    if (image) {
+      const { width, height } = fitImage(
+        image,
+        stageRef.current.width(),
+        stageRef.current.height()
+      );
+      setImageWidth(width);
+      setImageHeight(height);
+    }
+  }, [image]);
 
   const undoLastLine = () => {
     setLines(lines.slice(0, -1));
   };
 
   const handleMouseDown = (e) => {
-    isDrawing.current = true;
-    const pos = e.target.getStage().getPointerPosition();
-    setLines([...lines, { tool, points: [pos.x, pos.y], strokeWidth }]);
+    const stage = e.target.getStage();
+    const pos = stage.getPointerPosition();
+
+    // Проверяем, находится ли курсор внутри изображения
+    if (
+      pos.x >= imageRef.current.x() &&
+      pos.x <= imageRef.current.x() + imageWidth &&
+      pos.y >= imageRef.current.y() &&
+      pos.y <= imageRef.current.y() + imageHeight
+    ) {
+      isDrawing.current = true;
+      setLines([...lines, { tool, points: [pos.x, pos.y], strokeWidth }]);
+    }
   };
 
   const handleMouseMove = (e) => {
@@ -73,10 +118,19 @@ const ImageAnnotator = () => {
     }
     const stage = e.target.getStage();
     const point = stage.getPointerPosition();
-    let lastLine = lines[lines.length - 1];
-    lastLine.points = lastLine.points.concat([point.x, point.y]);
-    lines.splice(lines.length - 1, 1, lastLine);
-    setLines(lines.concat());
+
+    // Проверяем, находится ли курсор внутри изображения
+    if (
+      point.x >= imageRef.current.x() &&
+      point.x <= imageRef.current.x() + imageWidth &&
+      point.y >= imageRef.current.y() &&
+      point.y <= imageRef.current.y() + imageHeight
+    ) {
+      let lastLine = lines[lines.length - 1];
+      lastLine.points = lastLine.points.concat([point.x, point.y]);
+      lines.splice(lines.length - 1, 1, lastLine);
+      setLines(lines.concat());
+    }
   };
 
   const handleMouseUp = () => {
@@ -106,13 +160,21 @@ const ImageAnnotator = () => {
         height: window.innerHeight,
       });
 
-      window.addEventListener("resize", checkSize);
-      return () => {
-        window.removeEventListener("resize", checkSize);
-      };
+      // Устанавливаем размер Stage в зависимости от ширины экрана
+      if (window.innerWidth < 768) {
+        setStageSize({ width: 300, height: 300 });
+      } else {
+        setStageSize({ width: 500, height: 500 });
+      }
     };
-    checkSize();
-  });
+
+    window.addEventListener("resize", checkSize);
+    checkSize(); // Вызываем для первоначальной установки размера
+
+    return () => {
+      window.removeEventListener("resize", checkSize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -154,7 +216,7 @@ const ImageAnnotator = () => {
         <div className="screen-resolution">
           <img src={width} alt="Resolution" />
           <p className="screen-resolution-text">
-            {imageWidth}x{imageHeight}
+            {originalImageWidth}x{originalImageHeight}
           </p>
         </div>
       )}
@@ -171,23 +233,28 @@ const ImageAnnotator = () => {
       {image && (
         <div className="image-container">
           <Stage
-            width={imageWidth}
-            height={imageHeight}
-            // width={
-            //   imageWidth ? Math.min(imageWidth, window.innerWidth * 0.9) : 500
-            // }
-            // height={
-            //   imageHeight
-            //     ? Math.min(imageHeight, window.innerHeight * 0.9)
-            //     : 500
-            // }
+            width={stageSize.width}
+            height={stageSize.height}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             ref={stageRef}
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
           >
             <Layer>
-              <Image image={image} ref={imageRef} />
+              <Image
+                width={imageWidth}
+                height={imageHeight}
+                image={image}
+                ref={imageRef}
+                x={(stageSize.width - imageWidth) / 2} // Центрирование по горизонтали
+                y={(stageSize.height - imageHeight) / 2} // Центрирование по вертикали
+              />
             </Layer>
             <Layer>
               {lines.map((line, i) => (
@@ -225,13 +292,13 @@ const ImageAnnotator = () => {
               min="1"
               max="100"
               value={strokeWidth}
-              onChange={(e) => handlePenSliderChange(parseInt(e.target.value))}
+              onChange={(e) => handlePenSliderChange(e.target.value)}
               className="vertical-slider"
-              orient="vertical"
             />
           )}
-          <img src={pen} alt="Pen" />
+          <img src={pen} alt="pen" />
         </div>
+
         <div
           ref={eraserButtonRef}
           onClick={() => handleEraserClick()}
@@ -245,23 +312,20 @@ const ImageAnnotator = () => {
               min="1"
               max="100"
               value={strokeWidth}
-              onChange={(e) => handlePenSliderChange(parseInt(e.target.value))}
+              onChange={(e) => handlePenSliderChange(e.target.value)}
               className="vertical-slider"
-              orient="vertical"
             />
           )}
-          <img src={erazer} alt="Eraser" />
+          <img src={erazer} alt="erazer" />
         </div>
-        <button
-          onClick={undoLastLine}
-          disabled={lines.length === 0}
-          className="image-button"
-        >
-          <img src={undo} alt="Undo" />
-        </button>
-        <button onClick={downloadImage} className="image-button">
-          <img src={downloadIco} alt="Download" />
-        </button>
+
+        <div onClick={undoLastLine} className="image-button">
+          <img src={undo} alt="undo" />
+        </div>
+
+        <div onClick={downloadImage} className="image-button">
+          <img src={downloadIco} alt="Download Icon" />
+        </div>
       </div>
     </div>
   );
