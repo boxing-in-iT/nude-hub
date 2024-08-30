@@ -87,12 +87,6 @@ const Header = () => {
               >
                 {t("home")}
               </li>
-              {/* <li
-                onClick={() => handleLinkClick("examples-section")}
-                className="header-box-menu-item"
-              >
-                {t("examples")}
-              </li> */}
               <li
                 onClick={() => handleLinkClick("pricing")}
                 className="header-box-menu-item"
@@ -116,9 +110,11 @@ const Header = () => {
               </Link>
             )}
           </nav>
-          <button className="header-login-button-mobile">
-            {auth ? auth.email : t("login")}
-          </button>
+          <Link to="/account">
+            <button className="header-login-button-mobile">
+              {auth ? auth.email : t("login")}
+            </button>
+          </Link>
         </div>
       </div>
       {isMenuOpen && (
