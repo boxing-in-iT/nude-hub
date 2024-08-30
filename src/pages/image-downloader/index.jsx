@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ImageAnnotator from "../../components/ImageAnnotator";
 import girl from "../../assets/welcome/girl1.png";
 import rabbit from "../../assets/account/rabbit.png";
