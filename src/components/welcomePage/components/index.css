@@ -99,6 +99,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 20px 10px rgba(255, 64, 129, 0.7); /* Увеличиваем размер и силу свечения */
 }
 
 .divider-icon {
@@ -111,7 +112,7 @@
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 0 10px 2px rgba(255, 64, 129, 0.7);
+  box-shadow: 0 0 20px 5px rgba(255, 64, 129, 0.7); /* Увеличиваем размер и силу свечения */
 }
 
 .divider-icon img {

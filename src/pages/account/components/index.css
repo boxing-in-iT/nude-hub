@@ -78,7 +78,6 @@
 }
 
 .table-container {
-  /* width: 100%; Убедитесь, что контейнер занимает всю ширину */
   margin: 0 auto;
 }
 
@@ -134,4 +133,41 @@ tbody tr:last-child {
 
 td:last-child {
   font-weight: bold;
+}
+
+@media (max-width: 64em) {
+  .account-info-title {
+    /* margin: 0; */
+    /* padding: 0; */
+    margin-bottom: calc(2 * var(--index));
+    font-size: 20px;
+  }
+
+  .th-id, /* Скрывает заголовок столбца */
+  td:first-child {
+    /* Скрывает содержимое столбца */
+    display: none;
+  }
+
+  .account-info-data-item {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  thead th {
+    font-size: 10px;
+  }
+
+  th,
+  td {
+    padding: 20px 20px;
+    text-align: center;
+    color: white;
+    border: 0.01px solid #f0558c;
+  }
+
+  td {
+    font-size: 16px;
+    font-weight: 100;
+  }
 }

@@ -9,7 +9,7 @@
   background-color: #1e1e1e;
   border-radius: 16px;
   padding: 20px;
-  width: calc(30 * var(--index));
+  width: calc(20 * var(--index));
   height: calc(25 * var(--index));
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);

@@ -23,8 +23,10 @@ function App() {
           <Route element={<PrivateRoute />}>
             <Route path="/account" element={<AccountPage />} />
           </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path="/package/:id" element={<Packages />} />
+          </Route>
           <Route path="/image" element={<ImageDownloader />} />
-          <Route path="/package/:id" element={<Packages />} />
         </Routes>
         <Footer />
       </>
